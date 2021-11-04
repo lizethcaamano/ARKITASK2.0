@@ -1,3 +1,6 @@
+@extends('Templates.administrador')
+@section('administrador_contenido')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,50 +10,57 @@
     <title>Usuarios</title>
 </head>
 <body>
-<h1 class="text-danger">Nuevo Usuario</h1>
+<center><h1 class="text-danger">Nuevo Usuario</h1></center>
 <form method="post" action="{{url('Usuario')}}">
     @csrf
 <div class="mb-4 mt-6">
     <label for="nombre" class="form-label">Nombre de usuario:</label>
-    <input type="text" name="nombre" class="form-control">
+    <input type="text" value="{{old('nombre')}}" name="nombre" class="form-control " maxlength="25">
     <span class="text-danger">{{$errors->first("nombre")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="apellido" class="form-label">Apellido de usuario:</label>
-    <input type="text" name="apellido" class="form-control">
+    <input type="text" value="{{old('apellido')}}" name="apellido" class="form-control" maxlength="25">
     <span class="text-danger">{{$errors->first("apellido")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="email" class="form-label">Email</label>
-    <input type="text" name="correo" class="form-control">
-    <span class="text-danger">{{$errors->first("email")}}</span>
+    <input type="text" value="{{old('correo')}}"  name="correo" class="form-control" maxlength="40">
+    <span class="text-danger">{{$errors->first("correo")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="documento" class="form-label">Número de documento:</label>
-    <input type="text" name="numerodocumento" class="form-control">
-    <!-- <span class="text-danger">{{$errors->first("documento")}}</span> -->
+    <input type="text" value="{{old('numerodocumento')}}" name="numerodocumento" class="form-control" maxlength="10">
+     <span class="text-danger">{{$errors->first("numerodocumento")}}</span> 
 </div>
 
 <div class="mb-4 mt-6">
     <label for="fecha" class="form-label">Fecha de nacimiento:</label>
-    <input type="date" name="fechanacimiento" class="form-control">
-    <!-- <span class="text-danger">{{$errors->first("fecha")}}</span> -->
+    <input type="date" value="{{old('fechanacimiento')}}" name="fechanacimiento" class="form-control" >
+    <span class="text-danger">{{$errors->first("fechanacimiento")}}</span> 
 </div>
 
 <div class="mb-4 mt-6">
     <label for="telefono" class="form-label">Teléfono:</label>
-    <input type="text" name="telefono" class="form-control">
-    <!-- <span class="text-danger">{{$errors->first("telefono")}}</span> -->
+    <input type="text" value="{{old('telefono')}}" name="telefono" class="form-control" maxlength="10">
+     <span class="text-danger">{{$errors->first("telefono")}}</span> 
 </div>
 
 <div class="mb-4 mt-6">
     <label for="imagen" class="form-label">Imagen:</label>
-    <input type="file" name="imagen" class="form-control">
-    <!-- <span class="text-danger">{{$errors->first("imagen")}}</span> -->
+    <input type="file" value="{{old('imagen')}}" name="imagen" class="form-control">
+ <span class="text-danger">{{$errors->first("imagen")}}</span> 
 </div>
+
+<div class="mb-4 mt-6">
+<label for="">Contraseña</label>
+<input type="text" value="{{old('password')}}" name="password" class="form-control" >
+<span class="text-danger">{{$errors->first("password")}}</span> 
+</div>
+
 
 <div class="d-grid gap-2 col-6 mx-aito">
     <button type="submit"  class="btn btn-primary">Guardar</button>
@@ -60,3 +70,4 @@
 
 </body>
 </html>
+@endsection

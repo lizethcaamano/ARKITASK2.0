@@ -30,8 +30,11 @@ class EntregablesRequest extends FormRequest
     }
 
     public function messages(){
-        'urlarchivo.required'=>'Este campo es obligatorio'.
-        'fechaentrega.required'=>'Este campo es obligatorio'
+        return[
 
+       
+        'urlarchivo.required' =>'Este campo es obligatorio',
+        'fechaentrega.required'=>'Este campo es obligatorio'
+        ];
     }
 }

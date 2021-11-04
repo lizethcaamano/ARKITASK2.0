@@ -1,14 +1,13 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<div class="container">
+<center><h1>Editar Entregable</h1></center>
 <form method="POST"
 action="{{ url('entregables/' . $entregable->IdArchivo) }}"
  class="form-horizontal">
     @method('PUT')
     @csrf
     <fieldset>
-
-    <!-- Form Name -->
-    <legend>Editar Entregable</legend>
 
     <!-- Text input-->
     <div class="form-group">
@@ -36,7 +35,7 @@ action="{{ url('entregables/' . $entregable->IdArchivo) }}"
       </div>
     </div>
 
-    </fieldset>
-
+    </fieldset> 
     </form>
+    </div>
 @endsection

@@ -9,7 +9,6 @@
 <h3>
 
    <li>{{$actividad->Descripcion}}</li>
-   <li>{{$actividad->FechadePublicacion}}</li>
    <li>{{$actividad->FechalimitedeEntrega}}</li>
    <li>{{$actividad->Estado}}</li>
 

@@ -1,25 +1,28 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
-<form method="POST" action="{{ url('encargadoProyecto/' . $encargadoProyecto->IdEncargado) }}" class="form-horizontal">
+<link rel="stylesheet" href="{{ asset ('css/encargado.css')}}">
+<div class="container-fluid">
+   <center><h1>Modificar encargado</h1></center> 
+<form method="POST" action="{{ url('Encargado/'. $encargado->IdEncargado) }}" class="form-horizontal">
     @method('PUT')
     @csrf
     <fieldset>
 <div class="mb-4 mt-6">
     <label for="fechaInicio" class="form-label">Fecha de inicio:</label>
-    <input type="date" name="fechaInicio" class="form-control" value="{{$encargado->FechaInicio}}">
-    <!-- <span class="text-danger">{{$errors->first("fecha")}}</span> -->
+    <input type="date" name="fechaInicio" class="form-control" value="{{$encargado->FechaInicio}}" >
+    <span class="text-danger">{{$errors->first("fechaInicio")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="fechaFinal" class="form-label">Fecha final:</label>
     <input type="date" name="fechaFinal" class="form-control" value="{{$encargado->FechaFinal}}">
-    <!-- <span class="text-danger">{{$errors->first("fecha")}}</span> -->
+    <span class="text-danger">{{$errors->first("fechaFinal")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="observaciones" class="form-label">Observaciones:</label>
     <input type="text" name="observaciones" class="form-control" value="{{$encargado->Observaciones}}">
-    <!-- <span class="text-danger">{{$errors->first("observaciones")}}</span> -->
+    <span class="text-danger">{{$errors->first("observaciones")}}</span>
 </div>
 <!-- Button -->
 <div class="form-group">
@@ -28,7 +31,7 @@
     <button type="submit"  class="btn btn-primary">Guardar</button>
 </div>
     </fieldset>
-
+    </div>
     </form>
 
 @endsection

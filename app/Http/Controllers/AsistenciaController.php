@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Asistencia;
 use App\Exports\AsistenciasExport;
-use App\Usuario;
+use App\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Requests\AsistenciaRequest;
 
 class AsistenciaController extends Controller
 {
@@ -35,7 +36,7 @@ class AsistenciaController extends Controller
      */
     public function create()
     {
-        $empleados= Usuario::all();
+        $empleados= User::all();
         return view('ModuloAsistencia.Crear')->with('empleados', $empleados);
     }
 
@@ -45,7 +46,7 @@ class AsistenciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AsistenciaRequest $request)
     {
         /* Iniciamos proceso para crear una nueva asistencia */
         $asistencianew = new Asistencia();
@@ -56,6 +57,8 @@ class AsistenciaController extends Controller
         $asistencianew -> HoraSalida= $request -> input('horasalida');
         $asistencianew -> IdUsuarioFK = $request -> input('empleado');
         $asistencianew ->save();
+
+        return redirect('asistencia');
 
     }
 
@@ -92,7 +95,7 @@ class AsistenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AsistenciaRequest $request, $id)
     {
         $asistencia = Asistencia::find($id);
 

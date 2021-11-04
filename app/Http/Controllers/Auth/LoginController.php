@@ -2,39 +2,43 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\LoginRequest;
+
+
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+   // Mostrar el formulario del login
+   public function showloginform(){
 
-    use AuthenticatesUsers;
+    return view ('auth.login');
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+}
+//Longear
+public function login(LoginRequest $request){
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+ 
+  
+   //Auth: Establecer inicios de sesion
+if (Auth::attempt( ['NumeroDocumento'=> $request ->input('NumeroDocumento'), 'password'=> $request ->input('password')])){
+    return redirect ('asistencia');
+
+}else {
+   
+return redirect ('login')->with("credenciales_invalidas","credenciales no validas ");
+
+}
+}
+//Cerrar sesion
+
+public function logout(){
+
+Auth::logout();
+return redirect('login')
+->with("mensajeExito","Cierre de sesion  exitosamente");
+}
+
 }

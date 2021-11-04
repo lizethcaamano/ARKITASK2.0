@@ -87,7 +87,7 @@ class GruposTrabajoController extends Controller
 
         $grupo = GrupoTrabajo::find($id);
 
-        $grupo -> CodigoGrupo = $request -> input('codigo');
+        $grupo -> CodigoGrupo = $request -> input('codigoe');
         $grupo -> FechaInicio = $request -> input('inicio');
         $grupo -> FechaDesactivacion = $request -> input('desactivacion');
         $grupo -> save();

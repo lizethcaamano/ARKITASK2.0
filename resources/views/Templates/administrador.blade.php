@@ -808,10 +808,18 @@
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow ai-icon" href="{{url('entregables
+                        ')}}" aria-expanded="false">
 
                             <i class="flaticon-381-heart"></i>
                             <span class="nav-text">Entregables</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('proyectoT
+                        ')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-folder-8"></i>
+                            <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
 

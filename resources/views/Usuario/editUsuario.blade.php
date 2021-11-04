@@ -1,3 +1,6 @@
+@extends('Templates.administrador')
+@section('administrador_contenido')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
     <title>Usuarios</title>
 </head>
 <body>
-<h1 class="text-danger">Editar Usuario</h1>
+<center><h1 class="text-danger">Editar Usuario</h1></center>
 <form method="POST" action="{{ url('Usuario/' . $usuario->IdUsuario) }}" class="form-horizontal">
     @method('PUT')
     @csrf
@@ -68,3 +71,4 @@
 
 </body>
 </html>
+@endsection

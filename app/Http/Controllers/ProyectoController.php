@@ -19,7 +19,7 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        $proyectos = Proyecto::paginate(6);
+        $proyectos = Proyecto:: all();
         $proyectos-> each(function($proyectos){
             $proyectos->TipoProyecto;
             $proyectos->grupo;
@@ -40,7 +40,7 @@ class ProyectoController extends Controller
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
 
-        return view('Proyecto.createProyecto', compact('tipopro', 'grupo', 'catalogo'));
+        return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
     }
 
     /**
@@ -60,6 +60,7 @@ class ProyectoController extends Controller
         $nuevoproyecto->FechaEntrega = $request->input("fechae");
         $nuevoproyecto->IdTipoProyectoFK = $request->input("tipopro");
         $nuevoproyecto->IdGrupoFK = $request->input("grupo");
+        $nuevoproyecto->Estado ="Proceso";
 
 
         $nuevoproyecto->save();

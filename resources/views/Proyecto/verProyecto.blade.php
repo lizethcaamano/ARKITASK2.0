@@ -1,13 +1,19 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
-    <center>
-<h1>{{$proyecto->NombreProyecto}} </h1><br>
-
 <div class="container">
-<h3><strong>Codigo: {{$proyecto->CodigoProyecto}}</strong></h3>
-<h3><strong>Fecha de Realizacion: {{$proyecto->FechaRealizacion}}</strong></h3>
-<h3><strong>Fecha de Entrega: {{$proyecto->FechaEntrega}}</strong></h3>
-<h3><strong>Estado: {{$proyecto->Estado}}</strong></h3></center>
+
+<h1>{{$proyecto->NombreProyecto}} </h1><br><br><br>
+
+
+<h3><strong>Codigo:</h3> {{$proyecto->CodigoProyecto}}</strong><br><br><br>
+<h3><strong>Fecha de Realizacion:</h3> {{$proyecto->FechaRealizacion}}</strong><br><br><br>
+<h3><strong>Fecha de Entrega:</h3> {{$proyecto->FechaEntrega}}</strong><br><br><br>
+<h3><strong>Estado:</h3> {{$proyecto->Estado}}</strong><br><br><br>
+<h3><strong>Grupo:</h3></strong><br><br>
+<h3><strong>Encargado de Proyecto:</h3></strong><br><br>
+<h3><strong>Descripcion:</h3></strong>
+
+<a class="btn btn-primary" href="{{url('proyecto/'. $proyecto->IdProyecto.'/edit')}}">Editar</a>
 </div>
 
 @endsection
