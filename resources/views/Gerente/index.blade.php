@@ -1,4 +1,4 @@
-@extends('Templates.administrador')
+@extends('Templates.gerente')
 @section('administrador_contenido')
 
 <center><h1 class="text-info font-blockquote">Listado de Entregables</h1></center>
@@ -26,43 +26,43 @@
         <tr>
 
             <td>{{ $entregables->FechaEntrega}}</td>
-            <td>                          
-                <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px">
+            <td>             
+            <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px">
             </td> 
             <td>{{ $entregables->comentariosEntrega}}</td> 
             <td>
                 @switch($entregables->Estado)
                    @case(null)
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
+                   <a href="{{ url('gerente/Entregables/' . $entregables->IdArchivo . '/habilitar') }}">
                        Asignar estado
                    </a>
                    @break
                    @case(1)
                    <strong class="text-danger">Entregable Rechazado</strong>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
+                   <a href="{{ url('gerente/Entregables/' . $entregables->IdArchivo . '/habilitar') }}">
                        Aceptar
                    </a>
                    @break
                    @case(2)
                    <strong class="text-success">Entregable Aceptado</strong>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
+                   <a href="{{ url('gerente/Entregables/' . $entregables->IdArchivo . '/habilitar') }}">
                        Rechazar
                    </a>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/recahzado') }}">
+                   <a href="{{ url('gerente/Entregables/' . $entregables->IdArchivo . '/rechazado') }}">
 
                    </a>
                    @break
                @endswitch 
 
            </td>  
-            <td><a class="btn btn-outline-secondary" href="{{ url('entregables/'.$entregables->IdArchivo)}}">Detalles </a></td>
-            <td> <a class="btn btn-outline-info" href="{{ url('entregables/'.$entregables->IdArchivo. '/edit')}}"> Actualizar </a></td>
+            <td><a class="btn btn-outline-secondary" href="{{ url('gerente/Entregables/'.$entregables->IdArchivo)}}">Detalles </a></td>
+            <td> <a class="btn btn-outline-info" href="{{ url('gerente/Entregables/'.$entregables->IdArchivo. '/edit')}}"> Actualizar </a></td>
             
 
         @endforeach
     </tbody>
 </table>
 
-<a  Class = "btn btn-info" href="{{ url('entregables/create') }}">Nuevo Archivo</a>
+<a  Class = "btn btn-info" href="{{ url('gerente/Entregables/create') }}">Nuevo Archivo</a>
 
 @endsection

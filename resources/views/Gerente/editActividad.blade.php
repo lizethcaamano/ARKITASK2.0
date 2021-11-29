@@ -1,6 +1,6 @@
-@extends('Templates.administrador')
+@extends('Templates.gerente')
 @section('administrador_contenido')
-<form method="POST" action="{{ url('actividades/' . $actividad->IdActividad) }}" class="form-horizontal">
+<form method="POST" action="{{ url('gerente/Actividades' . $actividad->IdActividad) }}" class="form-horizontal">
     @method('PUT')
     @csrf
     <fieldset>
@@ -60,7 +60,7 @@
       <label class="col-md-4 control-label" for="button"><br></label>
       <div class="col-md-4">
         <button id="button" name="button" class="btn btn-warning">Guardar</button>
-        <a class="btn btn-warning" href="{{url('actividades')}}">Volver</a>
+        <a class="btn btn-warning" href="{{url('gerenteActividades')}}">Volver</a>
       </div>
     </div>
 

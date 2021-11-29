@@ -1,6 +1,6 @@
-@extends('Templates.administrador')
+@extends('Templates.gerente')
 @section('administrador_contenido')
-<form method="POST" action="{{ url('entregables') }}" class="form-horizontal" enctype="multipart/form-data">
+<form method="POST" action="{{ url('gerente/Entregables/') }}" class="form-horizontal" enctype="multipart/form-data">
     @csrf
     <fieldset>
 
@@ -57,7 +57,7 @@
     <div class="form-group">
 
         <button id="button" name="button" class="btn btn-warning">Guardar</button>
-        <a class="btn btn-warning" href="{{url('entregables')}}">Volver</a>
+        <a class="btn btn-warning" href="{{url('gerente/entregables')}}">Volver</a>
       </div>
     </div>
 

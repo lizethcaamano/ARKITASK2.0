@@ -1,4 +1,4 @@
-@extends('Templates.administrador')
+@extends('Templates.gerente')
 @section('administrador_contenido')
 <br><br><br><br><br><br>
 <center>
@@ -15,7 +15,7 @@
    Fecha limite de entrega: <strong><li class="list-group-item">{{$actividad->FechalimitedeEntrega}}</li></strong>
    Estado Actividad: <strong><li class="list-group-item">{{$actividad->Estado}}</li></strong>
     </ul>
-    <a class="btn btn-warning" href="{{url('actividades')}}">Volver</a>
+    <a class="btn btn-warning" href="{{url('gerente/Actividades')}}">Volver</a>
 
 </h3>
 </div>

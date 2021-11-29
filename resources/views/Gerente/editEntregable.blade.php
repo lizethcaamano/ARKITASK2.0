@@ -1,6 +1,6 @@
-@extends('Templates.administrador')
+@extends('Templates.gerente')
 @section('administrador_contenido')
-<form method="POST" action="{{ url('entregables/' . $entregable->IdArchivo) }}" class="form-horizontal" enctype="multipart/form-data">
+<form method="POST" action="{{ url('gerente/Entregables/' . $entregable->IdArchivo) }}" class="form-horizontal" enctype="multipart/form-data">
     @method('PUT')
     @csrf
     <fieldset>
@@ -30,9 +30,8 @@
       </div>
       <!-- Text input-->
     <div class="form-group">
-        <label class="col-md-4 control-label" for="apellido">Estado:</label>
         <div class="col-md-4">
-        <input value="{{ $entregable->Estado }}" name="estado" type="text" placeholder="" class="form-control input-md" >
+        <input value="{{ $entregable->Estado }}" name="estado" type="hidden" placeholder="" class="form-control input-md" >
         <strong class="text-danger"> {{ $errors->first('estado')   }}  </strong>
         </div>
       </div>
@@ -42,7 +41,7 @@
       <label class="col-md-4 control-label" for="button"><br></label>
       <div class="col-md-4">
         <button id="button" name="button" class="btn btn-warning">Guardar</button>
-        <a class="btn btn-warning" href="{{url('entregables')}}">Volver</a>
+        <a class="btn btn-warning" href="{{url('gerente/Entregables/')}}">Volver</a>
       </div>
     </div>
 
