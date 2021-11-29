@@ -6,85 +6,9 @@
 <link rel="stylesheet" href="estilos.css">
 <div style="height: 50px;"></div>
    
-
-        
-    <!-- Modal 2 - animado-->
-<div id="modal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <!--      Para centrado-->
-  <div class="modal-dialog modal-dialog-centered" role="document">  
-
-<!--  <div class="modal-dialog" role="document">-->
-    <div class="modal-content"> 
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-     
-      <form method="POST"  action="{{url('proyecto') }}" class="form-horizontal">
- @csrf
- <fieldset>
-<!-- Form Name -->
-<legend>Form Name</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Codigo de proyecto</label>
-  <div class="col-md-4">
-  <input value="{{old('codigoproyecto')}}" name="codigo"  type="text" placeholder="" class="form-control input-md">
-   <strong class="text-danger">{{$errors->first('codigo')}}</strong>
-  </div>
+<div class="row col-6">
+<canvas id="myChart" width="400" height="400"></canvas>
 </div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Nombre Proyecto</label>
-  <div class="col-md-4">
-  <input value="{{old('NombreProyecto')}}" name="nombre"  type="text" placeholder="" class="form-control input-md">
-   <strong>{{$errors->first('nombre')}}</strong>
-  </div>
-</div>
-
-
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Gmail">Fecha Realizacion</label>
-  <div class="col-md-4">
-  <input value="{{old('FechaRealizacion')}}" name="fechar"  type="date" placeholder="" class="form-control input-md">
-   <strong>{{$errors->first('fechar')}}</strong>
-  </div>
-</div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Gmail">Fecha Entrega</label>  
-  <div class="col-md-4">
-  <input value="{{old('FechaEntrega')}}" name="fechae"  type="date" placeholder="" class="form-control input-md">
-   <strong>{{$errors->first('fechae')}}</strong>
-  </div>
-</div>
-
-
-<!-- Button -->
-
-
-
-      </div>
-      <div class="modal-footer">
-      <button id="" name="" class="btn btn-secondary">Guardar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-  
-      </fieldset>
-</form>
- 
-    </div>
-  </div>
-</div>      
-           
 
 <a href="{{url('proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
 
@@ -114,7 +38,9 @@
            
         </div>
  @endforeach
-       
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+
 
         </div>
       
@@ -125,7 +51,46 @@
     <script src="bootstrap4/js/bootstrap.min.js"></script>   	
     <script src="jqueryUI/jquery-ui-1.12.1/jquery-ui.min.js"></script>  
    
-    <script src="js/codigo.js"></script> 	  
+    <script src="js/codigo.js"></script> 	
+    <script>
+   const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['1', '2', '3', '4', '5', '6'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+ 
+</script>
    
 @endsection
 

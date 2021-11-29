@@ -251,7 +251,7 @@ position: relative;
   position: relative;
 width: 100%;
   z-index: 1;
-  top: 90px;
+  top: 105px;
   left: 45px;
 }
 .flex-wrap-input100 {
@@ -587,3 +587,19 @@ height: 80%;
   left: 95px;
 }
 
+#valNumeroDocumento{
+position: absolute;
+width: 400px;
+top: 275px;
+left: 55px;
+}
+
+#valPassword{
+  position: absolute;
+  width: 400px;
+  top: 350px;
+  left: 55px;  
+  size: 20px;
+  color:rgb(209, 209, 221);
+
+}

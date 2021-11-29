@@ -25,10 +25,10 @@ class GrupoRequest extends FormRequest
     public function rules()
     {
         return [
-            "codigo" => 'required|max:16|min:6|unique:grupotrabajo,CodigoGrupo',
+            // "codigo" => 'required|max:16|min:6|unique:grupotrabajo,CodigoGrupo',
             "inicio" => 'required',
             "desactivacion" =>'required|after_or_equal:inicio',
-            "codigoe" => 'required'
+            // "codigoe" => 'required'
 
             
         ];
@@ -37,13 +37,13 @@ class GrupoRequest extends FormRequest
 public function messages()
 {
     return [
-        'codigo.required' => 'El codigo del Proyecto es Obligatorio',
+        // 'codigo.required' => 'El codigo del Proyecto es Obligatorio',
         'codigo.min' => 'Minimo 6 caracteres',
         'inicio.required' => 'Este campo es requerido',
         'desactivacion.required' => 'Este campo es requerido',
         'desactivacion.after_or_equal' =>'La fecha de desactivación no puede ser anterior a la fecha de inicio',
-        'codigo.unique' => 'El codigo ya existe',
-        'codigoe.required' => 'Este campo es requerido'
+        // 'codigo.unique' => 'El codigo ya existe',
+        // 'codigoe.required' => 'Este campo es requerido'
 
     ];
 }

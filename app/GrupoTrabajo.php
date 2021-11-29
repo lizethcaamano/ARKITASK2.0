@@ -15,6 +15,8 @@ public function Proyecto(){
     return $this -> HasMany('App\Proyecto','IdGrupoFK');
 }
 
+
+
  public function Actividades(){
      return $this -> belongsToMany('App\Actividades','SeguimientoProyecto','IdGrupoFK','IdActividadesFK','IdGrupo','IdActividad','IdSeguimiento');
  }

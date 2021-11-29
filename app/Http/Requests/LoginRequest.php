@@ -26,14 +26,15 @@ class LoginRequest extends FormRequest
     {
         return [
          
-                // "email"=> 'required|email',
-                "password"=>'required|min:8'    
+                
+                "password"=>'required|min:6'    
         ];
     }
 public function messages()
 {  
 
-return [ 'email.required|email' => 'Por favor ingrese su correo electronico',
-'password.required' => 'Por favor ingrese contraseña de minimo 8 caracteres'];
+return [ 'NumeroDocumento.required' => 'Este campo es obligatorio',
+'password.required' => 'Este campo es obligatorio',
+'NumeroDocumento.numeric' => 'Solo se aceptan numeros'];
 }
 }

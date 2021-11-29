@@ -35,7 +35,7 @@
   <label class="col-md-4 control-label" for="Gmail">FechaRealizacion</label>
   <div class="col-md-4">
   <input value="{{$proyecto->FechaRealizacion}}" name="fechar"  type="date" placeholder="" class="form-control input-md">
-   <strong>{{$errors->first('fechar')}}</strong>
+   
   </div>
 </div>
 
@@ -47,6 +47,24 @@
    <strong>{{$errors->first('fechae')}}</strong>
   </div>
 </div>
+
+<div class="mb-4 mt-6">
+    <label class="form-label" id="tipoProyecto" for="textinput"><h4>Tipo de Proyecto</h4></label>
+    
+    <select  id="inputTipoProyecto" name="tipopro" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach ($tipopro as $tipo)
+          <option value="{{$tipo->NombreTipoProyecto}}">{{$tipo->NombreTipoProyecto}}</option>
+          @endforeach
+      </select>
+     <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
+   
+  </div>
+
+
+</section>
+
+
 
 
 <!-- Button -->

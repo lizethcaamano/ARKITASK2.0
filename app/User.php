@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\GrupoTrabajo;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -26,10 +26,15 @@ public function proyecto(){
 return $this -> HasMany('App\Proyecto','IdUsuarioFK');
 }
 
-public function  GrupoTrabajo (){
-    return $this ->belongsToMany('App\GrupoTrabajo','SeguimientoProyecto','IdUsuarioFK','IdGrupoFK','IdUsuario','IdGrupo','IdSeguimiento'); 
+ public function  GrupoTrabajo(){
+     return $this ->belongsToMany('App\GrupoTrabajo','SeguimientoProyecto','IdUsuarioFK','IdGrupoFK','IdUsuario','IdGrupo','IdSeguimiento'); 
 
-}
+  }
+
+  public function  Rol(){
+    return $this ->belongsToMany('App\Rol','asignarrol','IdUsuarioFK','IdRolFK'); 
+
+ }
 
 public function Actividades() {
 
@@ -41,7 +46,7 @@ public function Actividades() {
      * @var array
      */
     protected $fillable = [
-        'NumeroDocumento', 'password',
+        'email', 'password',
     ];
 
     /**

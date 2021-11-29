@@ -13,17 +13,11 @@
 <body>
    
 <center><h1 class="text-lefth">Lista de Usuarios</h1></center>
-<!-- @if (session("mensaje_exito"))
-    <div>
-        <strong>
-            {{ session("mensaje_exito") }}
-        </strong>
-    </div>
-@endif -->
+  
 <table class="table table-dark">
     <thead>
         <tr class="table table-primary">
-            <th>Id</th>
+           
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Correo</th>

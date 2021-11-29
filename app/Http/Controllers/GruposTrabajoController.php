@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GrupoTrabajo;
-
+use App\SeguimientoProyecto;
+use App\User;
+use DB;
+use Illuminate\Support\Str;
 use App\Http\Requests\GrupoRequest;
 
 class GruposTrabajoController extends Controller
@@ -16,8 +19,11 @@ class GruposTrabajoController extends Controller
      */
     public function index()
     {
-        $grupos = GrupoTrabajo::paginate(10);
-
+        $grupos = GrupoTrabajo:: all();
+        $grupos-> each(function($grupos){
+            $grupos->GrupoTrabajo;
+            
+        });
         return view('GrupoTrabajo.Index')->with('grupos', $grupos);
     }
 
@@ -28,8 +34,11 @@ class GruposTrabajoController extends Controller
      */
     public function create()
     {
-      
-        return view('GrupoTrabajo.create');
+        $usuarios=User::all();
+        // $GrupoT = DB::table('AsignarRol')
+        // ->where ('IdRolFK','=','2')
+        // ->get ();
+        return view('GrupoTrabajo.create')->with('usuarios',$usuarios)->with('usuarios',$usuarios);
     }
 
     /**
@@ -40,13 +49,21 @@ class GruposTrabajoController extends Controller
      */
     public function store(GrupoRequest $request)
     {
+
+        $Codigo=Str::random(4);
         $grupo = new GrupoTrabajo();
 
-        $grupo -> CodigoGrupo = $request -> input('codigo');
+        $grupo -> CodigoGrupo ="Grup$codigo";
         $grupo -> FechaInicio = $request -> input('inicio');
         $grupo -> FechaDesactivacion = $request -> input('desactivacion');
+        
+
         $grupo -> save();
+
+
+
         return redirect ('Grupo');
+
     }
 
     /**
@@ -58,8 +75,9 @@ class GruposTrabajoController extends Controller
     public function show($id)
     {
         $grupo= GrupoTrabajo::find($id);
+        $usuarios=User::find($id);
 
-        return view('GrupoTrabajo.show')->with('grupo', $grupo);
+        return view('GrupoTrabajo.show')->with('grupo', $grupo)->with('usuarios',$usuarios);
     }
 
     /**

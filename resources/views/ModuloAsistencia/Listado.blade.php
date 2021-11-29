@@ -3,7 +3,12 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-
+@if(session("mensaje_exito"))
+    <div class="alert alert-primary text-left alert-di fade show">
+         <strong>{{session("mensaje_exito")}}</strong>
+         <button data-dismiss="alert" class="close"><span>&times;</span></button>
+    </div>
+    @endif
 <div class="row">
     <div class="col-12">
         <div class="card">

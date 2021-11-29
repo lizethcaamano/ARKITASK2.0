@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AsistenciaController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+use App\Http\Controllers\Auth\CambiarContrasenaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,40 +18,57 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('login');
 
 });
+Route::resource('asistencia', 'AsistenciaController')->middleware('miautenticacion');
 
-Route::resource('proyecto', 'ProyectoController');
 
-Route::resource('asistencia', 'AsistenciaController');
-
-Route::resource('catalogo', 'CatalogoController');
+Route::resource('proyecto', 'ProyectoController')->middleware('miautenticacion');
 
 
 
+Route::resource('catalogo', 'CatalogoController')->middleware('miautenticacion');
 
-Route::resource('Usuario','UsuarioController');
+ Route::get('cambiarContrasena/{idUsuario}', 'CambiarContrasenaController@mostrarFormCambiarPass');
+ Route::post('cambiarContrasena', 'CambiarContrasenaController@cambiarContrasena');
 
-Route::resource('Encargado','EncargadoProyectoController');
 
-Route::resource('Grupo','GruposTrabajoController');
 
-Route::resource('actividades', 'ActividadesController');
+Route::resource('Usuario','UsuarioController')->middleware('miautenticacion');
 
-Route::resource('entregables', 'EntregablesController');
+Route::resource('Encargado','EncargadoProyectoController')->middleware('miautenticacion');
 
-Route::resource('proyectoT', 'ProyectosTerminadosController');
+Route::resource('Grupo','GruposTrabajoController')->middleware('miautenticacion');
+
+Route::resource('actividades', 'ActividadesController')->middleware('miautenticacion');
+
+Route::resource('entregables', 'EntregablesController')->middleware('miautenticacion');
+
+Route::resource('proyectoT', 'ProyectosTerminadosController')->middleware('miautenticacion');
 
 Route::get('plantilla', function () {
     return view('Templates.administrador');
 
-//     Route::get('login','Auth\LoginController@form');
-// Route::post('login','Auth\LoginController@login');
-// Route::get('logout','Auth\LoginController@logout');
+
 
 });
 
 Route::get('reporte', 'AsistenciaController@reporte');
 
- Auth::routes();
+
+
+
+ Route::get('login','Auth\LoginController@form');
+ Route::post('login','Auth\LoginController@login');
+ Route::get('logout','Auth\LoginController@logout');
+
+  //Auth::Routes();
+  Route::get('prueba-email', function(){
+    
+    Mail::to('jsgaravito90@misena.edu.co')
+    ->send(new TestMail() );
+    die ('correo enviado');
+   });
+
+

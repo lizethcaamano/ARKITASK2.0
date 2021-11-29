@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\AsistenciaRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AsistenciaController extends Controller
 {
@@ -16,9 +17,16 @@ class AsistenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('miautenticacion');
+    }
+
+    
     public function index()
     {
-
+        if(Auth::check()){
         $asistencias = Asistencia::paginate(10);
         $asistencias-> each(function($asistencias){
             $asistencias->usuarios;
@@ -26,7 +34,10 @@ class AsistenciaController extends Controller
         });
         //return dd($asistencias);
 
-        return view('ModuloAsistencia.Listado')->with('asistencias', $asistencias);
+        return view('ModuloAsistencia.Listado')->with('asistencias', $asistencias);}
+        else{
+            return route('login');
+        }
     }
 
     /**

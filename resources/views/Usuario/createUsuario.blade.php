@@ -11,6 +11,8 @@
 </head>
 <body>
 <center><h1 class="text-danger">Nuevo Usuario</h1></center>
+
+<div>
 <form method="post" action="{{url('Usuario')}}">
     @csrf
 <div class="mb-4 mt-6">
@@ -55,11 +57,11 @@
  <span class="text-danger">{{$errors->first("imagen")}}</span> 
 </div>
 
-<div class="mb-4 mt-6">
-<label for="">Contraseña</label>
-<input type="text" value="{{old('password')}}" name="password" class="form-control" >
-<span class="text-danger">{{$errors->first("password")}}</span> 
-</div>
+
+
+<input type="password" value="{{old('password')}}" name="password" class="form-control" >
+
+
 
 
 <div class="d-grid gap-2 col-6 mx-aito">
@@ -67,7 +69,7 @@
 </div>
 
 </form>
-
+</div class="container">
 </body>
 </html>
 @endsection

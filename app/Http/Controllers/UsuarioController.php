@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use App\Mail\TestMail;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuariosRequest;
+use Illuminate\Support\Facades\Mail; 
+use App\Http\Controllers\Auth\CambiarContrasenaController;
+// use App\Mail\CambiarContrasenaMail;
 
 class UsuarioController extends Controller
 {
@@ -39,11 +44,15 @@ class UsuarioController extends Controller
      */
     public function store(UsuariosRequest $request)
     {
+        //$maxVal = User::all()->max('idusuario');
+        //$maxVal++;
+
+        $maxvalue= User::all();
         $nuevousuario = new User();
         $nuevousuario->Nombre = $request->input("nombre");
         $nuevousuario->Apellido = $request->input("apellido");
         $nuevousuario->email = $request->input("correo");
-        $nuevousuario->password = Hash::make($request->input("password")); /*Hash::make(str::random(64))*/;
+        $nuevousuario->password =  Hash::make($request->input("password")); /*Hash::make(str::random(64))*/;
         $nuevousuario->NumeroDocumento = $request->input("numerodocumento");
         $nuevousuario->FechaNacimiento = $request->input("fechanacimiento");
         $nuevousuario->Telefono = $request->input("telefono");
@@ -51,9 +60,11 @@ class UsuarioController extends Controller
 
   
         $nuevousuario->save();
-     //redireccionamiento  a una ruta especifica 
 
-     return redirect ('Usuario')->with('Creado','Se ha creado usuario  exitosamente');
+     //Enviar correo para el cambio de contraseña 
+     Mail::to($request->input('correo'))->send(new TestMail($maxvalue));
+     //redireccionamiento  a una ruta especifica 
+       return redirect ('Usuario')->with('Creado','Se ha creado usuario  exitosamente');
     }
 
     /**
