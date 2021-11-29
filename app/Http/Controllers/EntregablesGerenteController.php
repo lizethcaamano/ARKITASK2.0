@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class EntregablesController extends Controller
+class EntregablesGerenteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class EntregablesController extends Controller
     public function index()
     {
         $Entregables = Entregables::paginate(15);
-        return view('ModuloEntregables.index')
+        return view('Gerente.index')
                     ->with("Entregables", $Entregables);
     }
 
@@ -31,7 +31,7 @@ class EntregablesController extends Controller
     {
         $Usuarios = User :: all();
         $Actividades = Actividades :: all();
-        return view('ModuloEntregables.createEntregable')
+        return view('Gerente.createEntregable')
         ->with("Actividades", $Actividades)->with("Usuarios", $Usuarios);
     }
 
@@ -80,10 +80,10 @@ class EntregablesController extends Controller
         }
 
         $nuevoentregable->comentariosEntrega = $request->input('comentario');
-        $nuevoentregable->Estado = $request->input('estado');
+        $nuevoentregable->Estado = '1';
         $nuevoentregable->save();
 
-    return redirect('entregables')
+    return redirect('gerente/Entregables')
           ->with("mensaje_exito", "Archivo registrado exitosamente");
 
     }
@@ -99,7 +99,7 @@ class EntregablesController extends Controller
 
         $entregable = Entregables::find($id);
 
-        return view('ModuloEntregables.showEntregable') ->with('entregable', $entregable);
+        return view('Gerente.showEntregable') ->with('entregable', $entregable);
     }
 
     /**
@@ -112,7 +112,7 @@ class EntregablesController extends Controller
     {
         $entregable = Entregables::find($id);
 
-        return view('ModuloEntregables.editEntregable')
+        return view('Gerente.editEntregable')
                 ->with('entregable', $entregable);
     }
 
@@ -135,13 +135,13 @@ class EntregablesController extends Controller
             $destinationPath = 'images/actividades/';
             $filename = time() . '-' . $file->getClientOriginalName();
             $uploadSuccess = $request->file('urlarchivo')->move($destinationPath, $filename);
-            $entregable->urlarchivo = $destinationPath . $filename;
+            $entregable->URLarchivo = $destinationPath . $filename;
         }
         $entregable->comentariosEntrega = $request->input('comentario');
         $entregable->Estado = $request->input('estado');
         $entregable->save();
 
-    return redirect('entregables')
+    return redirect('gerente/Entregables')
           ->with("mensaje_exito", "Entregable  actualizado");
     }
     /**
@@ -153,7 +153,7 @@ class EntregablesController extends Controller
     public function destroy($entregables)
     {
         $entregables = Entregables::find($entregables)->delete();
-        return redirect()->route('ModuloEntregables.index')
+        return redirect()->route('Gerente.index')
             ->with('mensaje_exito', ' archivo eliminando correctamente ');
     }
     public function habilitar($IdArchivo){
@@ -169,7 +169,7 @@ class EntregablesController extends Controller
                 $entregables->Estado=2;
                 $entregables->save();
                 $mensaje_exito = 'Entregable Aceptado';
-                return view('ModuloEntregables.rechazo')->with('entregable', $entregable);
+                return view('Gerente.rechazo')->with('entregable', $entregable);
                 break;
             case 2:
                 $entregables->Estado=1;
@@ -177,6 +177,6 @@ class EntregablesController extends Controller
                 $mensaje_exito = 'Entregable Aceptado';
                 break;
         }
-        return redirect('entregables')->with('mensaje_exito', $mensaje_exito);
+        return redirect('gerente/Entregables')->with('mensaje_exito', $mensaje_exito);
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 
+
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -12,10 +13,10 @@ class LoginController extends Controller
      // Mostrar el formulario del login
    public function form(){
 
-    
+
     if(Auth::check()){
 
-        
+
 var_dump(Auth::user());
 switch(Auth::user()->Rol()->first()->NombreRol){
     case "Delineante": return redirect("asistencia");
@@ -35,11 +36,11 @@ switch(Auth::user()->Rol()->first()->NombreRol){
 //Longear
 public function login(LoginRequest $request){
 
- 
-  
+
+
    //Auth: Establecer inicios de sesion
 if (Auth::attempt( ['email'=> $request ->input('email'), 'password'=> $request ->input('password')])){
-    
+
 var_dump(Auth::user());
   switch(Auth::user()->Rol()->first()->NombreRol){
       case "Delineante": return redirect("asistencia");
@@ -56,7 +57,7 @@ var_dump(Auth::user());
 
 }
 else {
-   
+
 return redirect ('login')->with("credenciales_invalidas","credenciales no validas ");
 
 }

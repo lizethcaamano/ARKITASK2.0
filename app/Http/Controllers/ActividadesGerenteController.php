@@ -10,7 +10,7 @@ use App\Http\Requests\ActividadesRequest;
 
 
 
-class ActividadesController extends Controller
+class ActividadesGerenteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +21,7 @@ class ActividadesController extends Controller
     {
         $Proyectos = Proyecto :: all();
         $Actividades = Actividades::paginate(15);
-        return view('ModuloActividades.calendar')
+        return view('Gerente.calendar')
                     ->with("Actividades", $Actividades)->with("Proyectos", $Proyectos);
 
     }
@@ -34,7 +34,7 @@ class ActividadesController extends Controller
     public function create()
     {
         $Proyectos = Proyecto :: all();
-        return view('ModuloActividades.index', compact('Proyectos'));
+        return view('Gerente.index', compact('Proyectos'));
     }
 
     public function store(ActividadesRequest $request)
@@ -54,7 +54,7 @@ class ActividadesController extends Controller
         else{
             echo ("Guardado con exito");
         }
-      return redirect('actividades')
+      return redirect('gerente/Actividades')
             ->with("mensaje_exito", "Actividad registrada exitosamente");
 
     }
@@ -70,7 +70,7 @@ class ActividadesController extends Controller
 
         $actividad = Actividades::find($id);
 
-        return view('ModuloActividades.showActividad') ->with('actividad', $actividad);
+        return view('Gerente.showActividad') ->with('actividad', $actividad);
     }
 
     /**
@@ -84,7 +84,7 @@ class ActividadesController extends Controller
         $Proyectos = Proyecto :: all();
         $actividad = Actividades::find($id);
 
-        return view('ModuloActividades.editActividad')
+        return view('Gerente.editActividad')
                 ->with('actividad', $actividad)->with("Proyectos", $Proyectos);;
     }
 
