@@ -26,38 +26,31 @@
         <tr>
 
             <td>{{ $entregables->FechaEntrega}}</td>
-            <td>                          
-                <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px">
-            </td> 
-            <td>{{ $entregables->comentariosEntrega}}</td> 
             <td>
+                <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px">
+            </td>
+            <td>{{ $entregables->comentariosEntrega}}</td>
+            <td>
+
                 @switch($entregables->Estado)
-                   @case(null)
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
-                       Asignar estado
-                   </a>
-                   @break
-                   @case(1)
-                   <strong class="text-danger">Entregable Rechazado</strong>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
-                       Aceptar
-                   </a>
-                   @break
-                   @case(2)
-                   <strong class="text-success">Entregable Aceptado</strong>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/habilitar') }}">
-                       Rechazar
-                   </a>
-                   <a href="{{ url('entregables/' . $entregables->IdArchivo . '/recahzado') }}">
+                @case(null)
+                <strong class="text">Por Asignar</strong>
+                @break
+                @case(1)
+                <strong class="text-danger">Entregable Rechazado</strong>
+                @break
+                @case(2)
+                <strong class="text-success">Entregable Aceptado</strong>
+                <a href="{{ url('entregables/' . $entregables->IdArchivo . '/recahzado') }}">
 
-                   </a>
-                   @break
-               @endswitch 
+                </a>
+                @break
+            @endswitch
 
-           </td>  
+           </td>
             <td><a class="btn btn-outline-secondary" href="{{ url('entregables/'.$entregables->IdArchivo)}}">Detalles </a></td>
             <td> <a class="btn btn-outline-info" href="{{ url('entregables/'.$entregables->IdArchivo. '/edit')}}"> Actualizar </a></td>
-            
+
 
         @endforeach
     </tbody>

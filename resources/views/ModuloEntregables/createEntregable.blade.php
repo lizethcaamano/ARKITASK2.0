@@ -14,27 +14,27 @@
       <label class="col-md-4 control-label" for="textname">Adjuntar actividad:</label>
 
       <div class="col-md-4">
-      <input   id="urlarchivo" name="urlarchivo" type="file" placeholder="" class="form-control input-md" >
+      <input   id="urlarchivo" name="urlarchivo" type="file" placeholder="" class="form-control input-md">
       <strong class="text-danger"> {{ $errors->first('urlarchivo')   }}  </strong>
       </div>
       <label class="col-md-4 control-label" for="textname">Usuarios</label>
       <div class="col-md-4">
         <select id="usuarios" name="usuarios" class="form-control">
           <option selected disabled readonly>Eliga el nombre del usuario</option>
-          @foreach ( $Usuarios as $usuarios )  
+          @foreach ( $Usuarios as $usuarios )
           <option value="{{$usuarios['IdUsuario']}}">{{$usuarios['Nombre']}}</option>
           @endforeach
-        </select> 
+        </select>
         <strong class="text-danger"> {{ $errors->first('usuarios')   }}  </strong>
         </div>
       <label class="col-md-4 control-label" for="textname">Actividad</label>
       <div class="col-md-4">
         <select id="actividades" name="actividades" class="form-control">
           <option selected disabled readonly>Eliga el nombre de la actividad</option>
-          @foreach ( $Actividades as $actividades )  
+          @foreach ( $Actividades as $actividades )
           <option value="{{$actividades['IdActividad']}}">{{$actividades['NombreActividad']}}</option>
           @endforeach
-        </select> 
+        </select>
         <strong class="text-danger"> {{ $errors->first('actividades')   }}  </strong>
         </div>
       <label class="col-md-4 control-label" for="textname">Comentarios</label>
@@ -63,5 +63,5 @@
 
     </fieldset>
     </form>
- 
+
 @endsection

@@ -7,18 +7,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Bienvenido</title>
     <!-- Favicon icon -->
+    <link href="{{asset('vendor/fullcalendar/css/fullcalendar.min.css')}}" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon.ico')}}">
     <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist.min.css')}}">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e0a1bf980c.js" crossorigin="anonymous"></script>
-    <!-- Datatables -->
-    <link href="{{asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -742,8 +737,8 @@
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     <img src="images/profile/17.jpg" width="20" alt="" />
                                     <div class="header-info">
-                                        <span class="text-black"><strong> {{Auth::user()->Nombre}} {{Auth::user()->Apellido}} </strong></span>
-                                        <p class="fs-12 mb-0">{{Auth::user()->Rol()->first()->NombreRol}}</p>
+                                        <span class="text-black"><strong>Peter Parkur</strong></span>
+                                        <p class="fs-12 mb-0">Super Admin</p>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
@@ -756,10 +751,9 @@
                                         <span class="ml-2">Inbox </span>
                                     </a>
                                     <a href="./page-login.html" class="dropdown-item ai-icon">
-
-                                    <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                                 <span class="ml-2"> <a class="dropdown-item"  href="{{url ('logout')}}">Cerrar de Sesion</a> </span>
-                                </a>
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ml-2">Logout </span>
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -767,13 +761,6 @@
                 </nav>
             </div>
         </div>
-
-        @if(session("mensaje_exito"))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-         <strong>{{session("mensaje_exito")}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -785,8 +772,7 @@
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a href="{{url('proyecto
-                        ')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-folder-8"></i>
                             <span class="nav-text">Proyectos</span>
                         </a>
@@ -816,18 +802,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow ai-icon" href="{{url('entregables
-                        ')}}" aria-expanded="false">
-
+                        <a href="{{url('entregables')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-heart"></i>
                             <span class="nav-text">Entregables</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('proyectoT
-                        ')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-folder-8"></i>
-                            <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
 
@@ -886,10 +863,6 @@
     <script src="{{asset('./js/deznav-init.js')}}"></script>
     <script src="{{asset('./vendor/owl-carousel/owl.carousel.js')}}"></script>
 
-    <!-- Datatable -->
-    <script src="{{asset('vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('js/plugins-init/datatables.init.js')}}"></script>
-
     <!-- Chart piety plugin files -->
     <script src="{{asset('./vendor/peity/jquery.peity.min.js')}}"></script>
 
@@ -898,7 +871,13 @@
 
     <!-- Dashboard 1 -->
     <script src="{{asset('./js/dashboard/dashboard-1.js')}}"></script>
-
+    <!--fullcalendar -->
+    <script src="{{asset('vendor/jqueryui/js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('vendor/moment/moment.min.js')}}"></script>
+    <script src="{{asset('vendor/fullcalendar/js/fullcalendar.min.js')}}"></script>
+    <script src="{{asset('js/plugins-init/fullcalendar-init.js')}}"></script>
+    <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.css')}}"></script>
+    <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.js')}}"></script>
     <script>
         function carouselReview() {
             /*  testimonial one function by = owl.carousel.js */

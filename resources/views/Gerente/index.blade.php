@@ -17,7 +17,6 @@
             <th >Comentarios</th>
             <th >Estado</th>
             <th >Detalles</th>
-            <th>Actualizar</th>
         </tr>
     </thead>
     <tbody >
@@ -26,10 +25,11 @@
         <tr>
 
             <td>{{ $entregables->FechaEntrega}}</td>
-            <td>             
-            <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px">
-            </td> 
-            <td>{{ $entregables->comentariosEntrega}}</td> 
+            <td>
+                    <i class="fas fa-file-pdf"> Sin vista Previa</i>
+
+        </td>
+            <td>{{ $entregables->comentariosEntrega}}</td>
             <td>
                 @switch($entregables->Estado)
                    @case(null)
@@ -52,17 +52,14 @@
 
                    </a>
                    @break
-               @endswitch 
+               @endswitch
 
-           </td>  
+           </td>
             <td><a class="btn btn-outline-secondary" href="{{ url('gerente/Entregables/'.$entregables->IdArchivo)}}">Detalles </a></td>
-            <td> <a class="btn btn-outline-info" href="{{ url('gerente/Entregables/'.$entregables->IdArchivo. '/edit')}}"> Actualizar </a></td>
-            
+
 
         @endforeach
     </tbody>
 </table>
-
-<a  Class = "btn btn-info" href="{{ url('gerente/Entregables/create') }}">Nuevo Archivo</a>
 
 @endsection
