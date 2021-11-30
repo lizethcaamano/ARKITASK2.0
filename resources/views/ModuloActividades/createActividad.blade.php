@@ -1,11 +1,14 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+
+<div class="container">
+<h1>Crear Actividad</h1>
 <form method="POST" action="{{ url('actividades') }}" class="form-horizontal">
     @csrf
     <fieldset>
 
     <!-- Form Name -->
-    <legend>Nueva Actividad</legend>
+    
 
     <!-- Text input-->
     <div class="form-group">
@@ -54,4 +57,5 @@
 
     </fieldset>
     </form>
+    </div>
 @endsection

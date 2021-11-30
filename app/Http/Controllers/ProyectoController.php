@@ -19,7 +19,7 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        $proyectos = Proyecto::paginate(6);
+        $proyectos = Proyecto:: all();
         $proyectos-> each(function($proyectos){
             $proyectos->TipoProyecto;
             $proyectos->grupo;

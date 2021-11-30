@@ -1,3 +1,6 @@
+@extends('Templates.administrador')
+@section('administrador_contenido')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,3 +21,4 @@
 <h3><strong>  {{$usuario->Imagen}}</strong></h3>
 
 </html>
+@endsection

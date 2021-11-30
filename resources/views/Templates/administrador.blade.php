@@ -18,6 +18,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
+    <script>
+        $(document).ready(function()
+        {
+           $("#modalasistencia").modal("show");
+        });
+      </script>
 
 </head>
 
@@ -738,6 +744,7 @@
                                     </div>
                                 </div>
                             </li>
+
                             <li class="nav-item dropdown header-profile">
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     <img src="images/profile/17.jpg" width="20" alt="" />
@@ -755,12 +762,18 @@
                                         <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                                         <span class="ml-2">Inbox </span>
                                     </a>
-                                    <a href="./page-login.html" class="dropdown-item ai-icon">
+                                    <a href="{{route('logout')}}" class="dropdown-item ai-icon" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
                                         <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                                        <span class="ml-2">Logout </span>
+                                        <span class="ml-2"> {{ __('Logout') }} </span>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        class="d-none">
+                                                        @csrf
+                                                    </form>
                                     </a>
                                 </div>
                             </li>
+
                         </ul>
                     </div>
                 </nav>
@@ -808,10 +821,18 @@
                         </a>
                     </li>
                     <li>
-                        <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a class="has-arrow ai-icon" href="{{url('entregables
+                        ')}}" aria-expanded="false">
 
                             <i class="flaticon-381-heart"></i>
                             <span class="nav-text">Entregables</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{url('proyectoT
+                        ')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-folder-8"></i>
+                            <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
 

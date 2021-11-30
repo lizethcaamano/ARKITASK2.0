@@ -1,11 +1,12 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<div class="container">
+  
+<center><h1>Crear Entregables</h1></center>
 <form method="POST" action="{{ url('entregables') }}" class="form-horizontal">
     @csrf
     <fieldset>
 
-    <!-- Form Name -->
-    <legend>Nuevo Entregable</legend>
 
     <!-- Text input-->
     <div class="form-group">
@@ -23,7 +24,8 @@
         <button id="button" name="button" class="btn btn-warning">Guardar</button>
       </div>
     </div>
-
+    
     </fieldset>
     </form>
+    </div>
 @endsection

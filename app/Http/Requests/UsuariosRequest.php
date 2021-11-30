@@ -24,13 +24,13 @@ class UsuariosRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|regex:/^[a-zA-Z\s]+$/u|min:3|alpha_dash|max:20',
+            'nombre' => 'required|regex:/^[a-zA-Z\s]+$/u|min:3|max:20',
             'apellido' => 'required|regex:/^[a-zA-Z\s]+$/u',
-            'correo' => 'required|unique:usuario|email|min:12|max:40',
-            'numerodocumento' => 'required|unique:usuario|numeric|min:10',
+            'correo' => 'required|unique:usuario,email|email|min:12|max:40',
+            'numerodocumento' => 'required|unique:usuario,NumeroDocumento|numeric|min:10',
             'fechanacimiento' => 'required',
             'imagen' => 'required',
-            'telefono' => 'min:10|required|unique:usuario|regex:/^[0-9a]+$/u'
+            'telefono' => 'required|min:10|unique:usuario,Telefono|regex:/^[0-9a]+$/u'
 
 
             // 'enombre' => 'required|regex:/^[a-zA-Z\s]+$/u|min:3|max:20',
@@ -66,7 +66,7 @@ class UsuariosRequest extends FormRequest
                 'numerodocumento.min' => 'Minimo 10 caracteres',
 
                 'fechanacimiento.required' => 'Este campo es obligatorio',
-                'fechanacimiento' => '',
+                
 
                 'imagen.required' => 'Este campo es obligatorio',
 

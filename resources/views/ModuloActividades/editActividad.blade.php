@@ -1,5 +1,7 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+
+
 <form method="POST"
 action="{{ url('actividades/' . $actividad->IdActividad) }}"
  class="form-horizontal">

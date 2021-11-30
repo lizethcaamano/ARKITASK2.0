@@ -27,9 +27,9 @@ class encargadoProyectoRequest extends FormRequest
 
     
         return [
-            "fechaInicio" => 'required|after_or_equal:g',
+            "fechaInicio" => 'required',
             "fechaFinal" => 'required|after_or_equal:fechaInicio',
-            "observaciones" => 'required|max:20|min:10'
+            "observaciones" => 'required|max:200|min:10'
         ];
     }
 
@@ -38,7 +38,8 @@ class encargadoProyectoRequest extends FormRequest
         'fechaInicio.required' => 'La fecha de inicio es obligatoria',
         'fechaFinal.required' => 'La fecha final es obligatoria',
         'fechaFinal.after_or_equal' => 'La fecha final no puede ser anterior a la fecha de inicio',
-        'observaciones.required' => 'Las observaciones son obligatorias'
+        'observaciones.required' => 'Las observaciones son obligatorias',
+        'observaciones.min' => 'Las observaciones tiene que tener minimo 10 caracteres'
         ];
     }
 }

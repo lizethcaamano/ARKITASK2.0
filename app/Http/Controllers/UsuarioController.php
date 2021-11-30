@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Usuario;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UsuariosRequest;
 
 class UsuarioController extends Controller
 {
@@ -13,8 +16,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::paginate(6);
-        return view ('usuario.indexUsuario')
+        $usuarios = User::paginate(6);
+        return view ('Usuario.indexUsuario')
         ->with("usuarios",$usuarios);
     }
 
@@ -34,20 +37,21 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UsuariosRequest $request)
     {
-        $nuevousuario = new Usuario();
+        $nuevousuario = new User();
         $nuevousuario->Nombre = $request->input("nombre");
         $nuevousuario->Apellido = $request->input("apellido");
-        $nuevousuario->Correo = $request->input("correo");
+        $nuevousuario->email = $request->input("correo");
+        $nuevousuario->password = Hash::make($request->input("password")); /*Hash::make(str::random(64))*/;
         $nuevousuario->NumeroDocumento = $request->input("numerodocumento");
         $nuevousuario->FechaNacimiento = $request->input("fechanacimiento");
         $nuevousuario->Telefono = $request->input("telefono");
         $nuevousuario->Imagen = $request->input("imagen");
 
-  
+
         $nuevousuario->save();
-     //redireccionamiento  a una ruta especifica 
+     //redireccionamiento  a una ruta especifica
 
      return redirect ('Usuario')->with('Creado','Se ha creado usuario  exitosamente');
     }
@@ -60,7 +64,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        $usuario =Usuario::find($id);
+        $usuario =User::find($id);
         return view('usuario.showUsuario')
         ->with("usuario",$usuario);
     }
@@ -73,7 +77,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = Usuario::find($id);    
+        $usuario = User::find($id);
         return view('usuario.editUsuario')->with('usuario',$usuario);
     }
 
@@ -84,20 +88,21 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsuariosRequest $request, $id)
     {
-        $usuario= Usuario::find($id);
-        //actualizar el estado del recurso 
-        //en virtud de los datos que vengan de los formularios 
-  
+        $usuario= User::find($id);
+        //actualizar el estado del recurso
+        //en virtud de los datos que vengan de los formularios
+
         $usuario->Nombre = $request->input("nombre");
         $usuario->Apellido = $request->input("apellido");
-        $usuario->Correo = $request->input("correo");
+        $usuario->email = $request->$request->input("correo");
+        $usuario->password = Hash::make($request->input("password"));
         $usuario->NumeroDocumento = $request->input("numerodocumento");
         $usuario->FechaNacimiento = $request->input("fechanacimiento");
         $usuario->Telefono = $request->input("telefono");
         $usuario->Imagen = $request->input("imagen");
-        
+
         $usuario->save();
         return redirect("Usuario")
         ->with("mensaje", "Usuario actualizado");

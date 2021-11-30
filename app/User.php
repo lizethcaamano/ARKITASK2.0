@@ -10,13 +10,38 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+    protected $table ="usuario";
+    protected $primaryKey ="IdUsuario";
+    public $timestamps = false;
+
+       // relacion de uno a muchos 
+public function asistencia(){
+
+    return $this-> HasMany('App\Asistencia', 'IdUsuarioFK');  
+} 
+
+
+public function proyecto(){ 
+return $this -> HasMany('App\Proyecto','IdUsuarioFK');
+}
+
+public function  GrupoTrabajo (){
+    return $this ->belongsToMany('App\GrupoTrabajo','SeguimientoProyecto','IdUsuarioFK','IdGrupoFK','IdUsuario','IdGrupo','IdSeguimiento'); 
+
+}
+
+public function Actividades() {
+
+    return $this ->hasManyThrough('App\Actividades','App\SeguimientoProyecto','IdUsuarioFK','IdSeguimientoFK','IdUsuario','IdSeguimiento');
+}
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password',
     ];
 
     /**

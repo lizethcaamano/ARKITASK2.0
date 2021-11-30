@@ -12,7 +12,7 @@ class Proyecto extends Model
     public $timestamps = false;
 
     public function usuarios(){
-        return $this ->belongsToMany('App\Usuario','EncargadoProyecto','IdProyectoFK','IdUsuarioFK','IdProyecto','IdUsuario','IdEncargado');
+        return $this ->belongsToMany('App\User','EncargadoProyecto','IdProyectoFK','IdUsuarioFK','IdProyecto','IdUsuario','IdEncargado');
     }
 
     public function Actividades(){

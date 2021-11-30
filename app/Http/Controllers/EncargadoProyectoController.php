@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\EncargadoProyecto;
 use Illuminate\Http\Request;
+use App\Http\Requests\encargadoProyectoRequest;
 
 
 class EncargadoProyectoController extends Controller
@@ -14,7 +15,7 @@ class EncargadoProyectoController extends Controller
      */
     public function index()
     {
-        $encargados = Encargado::paginate(6);
+        $encargados = EncargadoProyecto::paginate(6);
         return view ('encargadoProyecto.indexEncargado')
         ->with("encargados",$encargados);
     }
@@ -35,9 +36,9 @@ class EncargadoProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(encargadoProyectoRequest $request)
     {
-        $nuevoencargado = new Encargado();
+        $nuevoencargado = new EncargadoProyecto();
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");
         $nuevoencargado->Observaciones = $request->input("observaciones");
@@ -55,9 +56,9 @@ class EncargadoProyectoController extends Controller
      */
     public function show($id)
     {
-        $encargado =Encargado::find($id);
+        $encargado =EncargadoProyecto::find($id);
         return view('encargadoProyecto.showEncargado')
-        ->with("encargad",$encargad);
+        ->with("encargado",$encargado);
     }
 
     /**
@@ -68,7 +69,7 @@ class EncargadoProyectoController extends Controller
      */
     public function edit($id)
     {
-        $encargado = Encargado::find($id);    
+        $encargado = EncargadoProyecto::find($id);    
         return view('encargadoProyecto.editEncargado')->with('encargado',$encargado);
     }
 
@@ -79,9 +80,9 @@ class EncargadoProyectoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(encargadoProyectoRequest $request, $id)
     {
-        $encargado= Encargado::find($id);
+        $encargado= EncargadoProyecto::find($id);
         //actualizar el estado del recurso 
         //en virtud de los datos que vengan de los formularios 
   

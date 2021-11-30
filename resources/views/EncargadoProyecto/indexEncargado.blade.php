@@ -8,14 +8,13 @@
         </strong>
     </div>
 @endif -->
-<table class="table table-dark">
+<table class="table table-striped">
     <thead>
-        <tr class="table table-primary">
-            <th>Fecha de Inicio</th>
-            <th>Fecha final</th>
-            <th>Observaciones</th>
-            <th>Id Proyecto</th>
-            <th>Id Usuario</th>
+        <tr class="table">
+         <th scope="col"><h3>Fecha de Inicio</h3></th>
+            <th><h3>Fecha final</h3></th>
+            <th><h3>Id Proyecto</h3></th>
+            <th><h3>Id Usuario</h3></th>
         </tr>
     </thead>
     <tbody >
@@ -25,9 +24,9 @@
 
             <td>{{ $encargado->FechaInicio}}</td>
             <td>{{ $encargado->FechaFinal}}</td>
-            <td>{{ $encargado->Observaciones}}</td>
-            <td><a class="btn btn-outline-secondary" href="{{ url('EncargadoProyecto/'.$encargadoProyecto->IdEncargado)}}">Ver Detalles </a></td>
-           <td> <a class="btn btn-outline-info" href="{{ url('EncargadoProyecto/'.$encargadoProyecto->IdEncargado.'/edit')}}"> Actualizar </a></td>
+        
+            <td><a class="btn btn-outline-secondary" href="{{ url('Encargado/'.$encargado->IdEncargado)}}">Ver Detalles </a></td>
+           <td> <a class="btn btn-outline-info" href="{{ url('Encargado/'.$encargado->IdEncargado.'/edit')}}"> Actualizar </a></td>
 
 
 
@@ -38,6 +37,6 @@
 
  {{ $encargados->links() }}
 
-<a  Class = "btn btn-info " href="{{ url('EncargadoProyecto/create') }}">Nuevo Encargado</a>
+<a class="btn btn-primary" href="{{ url('Encargado/create') }}">Nuevo Encargado</a>
 
 @endsection

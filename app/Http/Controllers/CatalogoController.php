@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Validator;
 use App\Catalogo;
 use Illuminate\Http\Request;
+use App\Http\Requests\CatalogoRequest;
 
 class CatalogoController extends Controller
 {
@@ -14,7 +15,11 @@ class CatalogoController extends Controller
      */
     public function index()
     {
-        $catalogos = Catalogo::paginate(10);
+        $catalogos = Catalogo::all();
+        $catalogos -> each(function($catalogos){
+            $catalogos->Imagen;
+        });
+       //return dd($catalogos);
         return view('ModuloCatalogo.Listado')->with('catalogos', $catalogos);
     }
 
@@ -34,7 +39,7 @@ class CatalogoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CatalogoRequest $request)
     {
 
         $reglas=[
@@ -53,15 +58,15 @@ class CatalogoController extends Controller
         $validador =Validator::make($request->all(),$reglas,$mensajes);
 
 
-     
+
         if ($validador->fails()){
-              
+
             return redirect ('catalogo/create')->withErrors($validador)
 
 
-            
-           
-              
+
+
+
             ->withInput();
         }
 
@@ -108,7 +113,7 @@ class CatalogoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CatalogoRequest $request, $id)
     {
         $catalogo = Catalogo::find($id);
 

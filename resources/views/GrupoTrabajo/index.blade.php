@@ -1,5 +1,8 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+
+<center><h1>Lista de Grupos de Proyecto</h1></center>
+<br>
 <table class="table table-primary">
         <thead>
             <tr>
@@ -9,7 +12,7 @@
                <th>Ver detalles</th>
                <th>Actualizar</th>
 
-               <th>Cambiar estado</th>
+              
             </tr>
         </thead>
         <tbody>
@@ -19,7 +22,7 @@
                 <td>{{ $grupo->CodigoGrupo}} </td>
                 <td>{{ $grupo->FechaInicio}} </td>
                 <td>{{ $grupo->FechaDesactivacion}} </td>
-                <td> </td>
+              
                 <td><a href="{{ url('Grupo/'.$grupo->IdGrupo)}}">Ver detalles</a></td>
                 <td>  <a href="{{url('Grupo/'.$grupo->IdGrupo.'/edit' )}}">Actualizar</a></td>
 
