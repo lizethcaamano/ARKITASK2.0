@@ -31,9 +31,7 @@
 										<input type="checkbox" class="custom-control-input" id="drop-remove">
 										<label class="custom-control-label" for="drop-remove">Remove After Drop</label>
 									</div>
-                                    <a href="javascript:void()" data-toggle="modal" data-target="#add-category" class="btn btn-primary btn-event w-100">
-                                        <span class="align-middle"><i class="ti-plus"></i></span>  Nueva Actividad
-                                    </a>
+
                                 </div>
                             </div>
                         </div>
@@ -73,9 +71,7 @@
                                 <a class="btn btn-warning" href="{{url('actividades/' . $actividad->IdActividad)}}">Detalle</a>
                                 {{-- <a class="btn btn-warning" href="{{url('actividad/editar')}}">Editar</a> --}}
                                 {{-- <a class="btn btn-warning" href="{{url('actividad/editar' . $actividades->IdActividad)}}">Editar</a> --}}
-                                <td> <a class="btn btn-warning" href="{{ url('actividades/'.$actividad->IdActividad. '/edit')}}"> Actualizar </a></td>
                                 <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Eliminar</button>
                             </div>
                         </div>
                     </div>

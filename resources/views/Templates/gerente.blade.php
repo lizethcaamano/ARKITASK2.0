@@ -9,10 +9,11 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon.ico')}}">
     <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist.min.css')}}">
+    <link href="{{asset('vendor/fullcalendar/css/fullcalendar.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/e0a1bf980c.js" crossorigin="anonymous"></script>
+
     <!-- Datatables -->
     <link href="{{asset('vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 
@@ -804,7 +805,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('gerente/Actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-internet"></i>
                             <span class="nav-text">Actividades</span>
                         </a>

@@ -29,14 +29,15 @@
       <strong class="text-danger"> {{ $errors->first('comentario')   }}  </strong>
       </div>
       <!-- Text input-->
+
     <div class="form-group">
         <label class="col-md-4 control-label" for="apellido">Estado:</label>
         <div class="col-md-4">
-        <input value="{{ $entregable->Estado }}" name="estado" type="text" placeholder="" class="form-control input-md" >
+        <input value="{{ $entregable->Estado }}" name="estado" type="hidden" placeholder="" class="form-control input-md" >
         <strong class="text-danger"> {{ $errors->first('estado')   }}  </strong>
         </div>
       </div>
-     
+
     <!-- Button -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="button"><br></label>

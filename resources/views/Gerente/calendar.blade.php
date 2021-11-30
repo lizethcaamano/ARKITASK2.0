@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.administrador1')
 @section('administrador_contenido')
 @csrf
 <fieldset>
@@ -56,11 +56,11 @@
                             @method('PUT')
                                 @csrf
                                 <div class="modal-footer">
-                                
+
                                 <label class="control-label">Nombre Actividad</label>
                                 <input class="form-control" type="text" name="nombreA" value="{{$actividades->NombreActividad}}">
                                 <label class="control-label">Descripción Actividad</label>
-                                <input class="form-control" type="text" name="descripcion" value="{{$actividades->Descripcion}}">                          
+                                <input class="form-control" type="text" name="descripcion" value="{{$actividades->Descripcion}}">
                                 <label class="control-label">Fecha de Creación</label>
                                 <input class="form-control" type="text" name="fechaInit" value="{{$actividades->FechadePublicacion}}" disabled>
                                 <label class="control-label">Fecha Limite De Entrega</label>
@@ -74,7 +74,7 @@
                                 {{-- <a class="btn btn-warning" href="{{url('actividad/editar')}}">Editar</a> --}}
                                 {{-- <a class="btn btn-warning" href="{{url('actividad/editar' . $actividades->IdActividad)}}">Editar</a> --}}
                                 <td> <a class="btn btn-warning" href="{{ url('actividades/'.$actividad->IdActividad. '/edit')}}"> Actualizar </a></td>
-                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button> 
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
                                 <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Eliminar</button>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                             <input class="form-control form-white" placeholder="Enter name" type="text" name="descripcion">
                                             <span class="text-danger">{{$errors->first("descripcion")}}</span>
                                         </div>
-                                        
+
                                         <div class="col-md-6">
                                             <label class="control-label">Fecha Limite De Entrega</label>
                                             <input class="form-control form-white" placeholder="Enter name" type="datetime-local" name="fechaLim">
@@ -113,10 +113,10 @@
                                             <label class="control-label">Proyecto</label>
                                              <select id="proyectos" name="proyecto" class="form-control">
                                                 <option selected disabled readonly>Eliga el nombre del proyecto</option>
-                                                @foreach ( $Proyectos as $proyecto )  
+                                                @foreach ( $Proyectos as $proyecto )
                                                 <option value="{{$proyecto['IdProyecto']}}">{{$proyecto['NombreProyecto']}}</option>
                                                 @endforeach
-                                              </select> 
+                                              </select>
                                               <span class="text-danger">{{$errors->first("proyecto")}}</span>
                                         </div>
                                     <div class="col-md-6">
@@ -134,14 +134,14 @@
                                         <input class="form-control form-white" placeholder="Enter name" type="hidden" name="fechaInit" value="{{$actividad->FechadePublicacion}}">
                                     </div>
                                 </div>
-                                
+
                                 <button type="submit" class="btn btn-danger waves-effect waves-light save-category">Save</button>
                             </form>
-                           
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                        </div>                       
+                        </div>
                     </div>
                 </div>
             </div>

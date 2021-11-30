@@ -53,7 +53,7 @@ var_dump(Auth::user());
                break;
                case "Gerente": return redirect("gerente/Entregables");
                break;
-               case "Encargado Proyecto": return redirect("proyecto");
+               case "Encargado Proyecto": return redirect("asistencia");
                break;
  }
 

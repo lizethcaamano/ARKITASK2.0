@@ -26,7 +26,7 @@
 
             <td>{{ $entregables->FechaEntrega}}</td>
             <td>
-                    <i class="fas fa-file-pdf"> Sin vista Previa</i>
+                <img src="{{ $entregables->URLarchivo }}" class="img-fluid"width="120px" height="120px"  max-width="120px" max-height="120px" alt="Sin vista previa">
 
         </td>
             <td>{{ $entregables->comentariosEntrega}}</td>
