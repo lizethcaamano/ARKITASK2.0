@@ -6,9 +6,11 @@ use App\Catalogo;
 use App\GrupoTrabajo;
 use Illuminate\Http\Request;
 use App\Proyecto;
-
+use Illuminate\Support\Str;
 use App\Http\Requests\ProyectoRequest;
 use App\TipoProyecto;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class ProyectoController extends Controller
 {
@@ -19,14 +21,21 @@ class ProyectoController extends Controller
      */
     public function index()
     {
+         if(Auth::check()){
+
+
         $proyectos = Proyecto:: all();
         $proyectos-> each(function($proyectos){
             $proyectos->TipoProyecto;
             $proyectos->grupo;
             $proyectos->catalogo;
-
-        });
+        }
+        );
         return view ('proyecto.indexproyecto')->with("proyectos", $proyectos);
+
+     }else{
+         return route('login');
+     }
     }
 
     /**
@@ -40,7 +49,7 @@ class ProyectoController extends Controller
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
 
-        return view('Proyecto.createProyecto', compact('tipopro', 'grupo', 'catalogo'));
+        return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
     }
 
     /**
@@ -51,15 +60,22 @@ class ProyectoController extends Controller
      */
     public function store(ProyectoRequest $request)
     {
+//$array = [1,2,3,4,5,6,7,8,9];
+$Proyecto= Str::random(4);
+
+
+
 
         //crear el nuevo recurso clienteDB::delete('delete users where name = ?', ['John'])
         $nuevoproyecto = new Proyecto();
-        $nuevoproyecto->CodigoProyecto = $request->input("codigo");
+        $nuevoproyecto->CodigoProyecto ="Proy$Proyecto";
         $nuevoproyecto->NombreProyecto = $request->input("nombre");
         $nuevoproyecto->FechaRealizacion = $request->input("fechar");
         $nuevoproyecto->FechaEntrega = $request->input("fechae");
         $nuevoproyecto->IdTipoProyectoFK = $request->input("tipopro");
         $nuevoproyecto->IdGrupoFK = $request->input("grupo");
+        $nuevoproyecto->IdCatalogoFK = $request->input("catalogo");
+        $nuevoproyecto->Estado ="Proceso";
 
 
         $nuevoproyecto->save();
@@ -90,10 +106,11 @@ class ProyectoController extends Controller
      */
     public function edit($id)
     {
-        $tipopro=TipoProyecto::all();
+        $tipopro=TipoProyecto::all($id);
         $proyecto = Proyecto::find($id);
         $grupo = GrupoTrabajo::all();
-        return view('proyecto.editProyecto', compact('proyecto', 'tipopro', 'grupo'));
+        $catalogo = Catalogo::all();
+        return view('proyecto.editProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)->with('proyecto',$proyecto);
     }
 
     /**

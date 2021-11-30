@@ -27,12 +27,18 @@
 </head>
 
 <body>
+@if(session("mensaje_fracaso"))
+    <div class="alert alert-seconds text-left alert-di fade show">
+         <strong  class="text-warning">{{session("mensaje_fracaso")}}</strong>
+         <button data-dismiss="alert" class="close"><span>&times;</span></button>
+    </div>
+    @endif
 	<div class="container-portada">
 		<div class="capa-gradient"></div>
 
 					<div class="wrap-login100 p-t-190 p-b-30">
 
-						<form method="POST" class="login100-form validate-form" action="{{ route('login') }}" >
+						<form method="POST" class="login100-form validate-form" action="{{ url('login') }}" >
 @csrf
 						<img src="images/LogotipoBlan.png" alt="" class="flex-wrap-iconoUsuario">
 
@@ -42,14 +48,18 @@
 
 
 							<div class="flex-wrap-input100 validate-input m-b-10" data-validate="Username is required">
-								<input class="input100" type="text" name="email" placeholder="Usuario">
+								<input value="{{old ('email') }}" class="input100" type="text" name="email" placeholder="Usuario">
 								<span class="focus-input100"></span>
 								<span class="symbol-input100">
 									<i class="fa fa-user"></i>
 								</span>
 
 							</div>
-							<strong> {{ $errors->first('email') }} </strong>
+
+					@if(session("credenciales_invalidas"))
+						<strong id="valPassword" class="text-warning">{{ session('credenciales_invalidas')}}</strong>
+						@endif
+							<strong ID="valNumeroDocumento" class="text-warning">{{ $errors->first('NumeroDocumento') }} </strong>
 
 							<div class="flex-wrap-input101 validate-input m-b-10" data-validate="Password is required">
 								<input class="input100" type="password" name="password" placeholder="Contraseña">
@@ -59,10 +69,10 @@
 								</span>
 
 							</div>
-							<strong> {{ $errors->first('password') }} </strong>
+							<strong id="valPassword" class="text-warning">{{ $errors->first('password') }}</strong>
 							<div class="flex-wrap-container-login100-form-btn">
 
-								<button class="login100-form-btn" data-toggle="modal" data-target="#modelId">
+								<button class="login100-form-btn">
 									Iniciar
 								</button>
 							</div>

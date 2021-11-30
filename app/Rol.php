@@ -11,6 +11,6 @@ class Rol extends Model
     public $timestamps = false;
 
     public function usuarios(){
-        return $this ->belongsToMany('App\User','AsignarRol','IdRolFK','IdUsuarioFK','IdRol','IdUsuario','IdAsignarRol'); 
+        return $this ->belongsToMany('App\User','AsignarRol','IdRolFK','IdUsuarioFK');
     }
 }

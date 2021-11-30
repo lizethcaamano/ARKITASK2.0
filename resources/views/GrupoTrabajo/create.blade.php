@@ -9,20 +9,13 @@
 <legend>Crear grupos de trabajo</legend>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Codigo de grupo</label>
-  <div class="col-md-4">
-  <input value="{{old('codigo')}}" name="codigo"  type="text" placeholder="" class="form-control input-md" maxlength="16">
-    <strong class="text-danger">{{$errors->first('codigo')}}</strong>  
-  </div>
-</div>
 
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Fecha de inicio</label>
   <div class="col-md-4">
   <input value="{{old('inicio')}}" name="inicio"  type="date" placeholder="" class="form-control input-md" min="<?php echo date('Y-m-d');?>">
-  <strong>{{$errors->first('inicio')}}</strong>  
+  <strong>{{$errors->first('inicio')}}</strong>
   </div>
 </div>
 
@@ -36,9 +29,24 @@
   <label class="col-md-4 control-label" >Fecha desactivacion</label>
   <div class="col-md-4">
   <input value="{{old('desactivacion')}}" name="desactivacion"  type="date" placeholder="" class="form-control input-md">
-   <strong>{{$errors->first('desactivacion')}}</strong> 
+   <strong>{{$errors->first('desactivacion')}}</strong>
   </div>
 </div>
+
+<div class="mb-4 mt-6">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrantes del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="GrupoTrabajo" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+
+        @foreach($usuarios as $usuario )
+          <option value="">{{$usuario->Nombre}}</option>
+          @endforeach
+
+      </select>
+
+
+
+
 
 
 <!-- Button -->

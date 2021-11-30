@@ -1,0 +1,148 @@
+.card{
+    position:absolute;
+    left:700px  ;
+    width: 500px;
+    height: 700px;
+    background-color:#ffffff
+
+
+}
+
+.card-header{
+    position:absolute;
+    left: 300px;
+}
+
+.form-label-1{
+    position: absolute;
+    top:100px;
+    left:60px;
+}
+
+#NombreProyecto{
+    position: absolute;
+    top:135px;
+    left:-65px;
+    height:60px ;
+    width: 400px ;
+
+}
+
+#tipoProyecto{
+    position: absolute;
+    top:100px;
+    left:520px;  
+   ;
+}
+
+#inputTipoProyecto{
+    position: absolute;
+    top:135px;
+    left:500px;
+    height:60px ;
+    width: 400px ;
+
+  
+}
+#labelFechaRealizacion{
+    position: absolute;
+    top:260px;
+    left:-100px; 
+}
+
+#inputFechaRealizacion{
+    position: absolute;
+    top:250px;
+    left:55px;
+    height:60px ;
+    width: 400px ;
+}
+
+#labelFechaEntrega{
+    position: absolute;
+    top:200px;
+    left:275px; 
+}
+
+#inputFechaEntrega{
+    position: absolute;
+    top:228px;
+    left:130px;
+    height:60px ;
+    width: 400px ;
+}
+
+#labelGrupoTrabajo{
+    position: absolute;
+    top:425px;
+    left:55px; 
+}
+
+#selectGrupoTrabajo{
+    position: absolute;
+    top:455px;
+    left:45px;
+    height:60px ;
+    width: 400px ;
+}
+
+#labelCatalogo{
+    position: absolute;
+    top:430px;
+    left:505px;  
+}
+
+#selectCatalogo{
+    position: absolute;
+    top:455px;
+    left:490px;
+    height:60px ;
+    width: 400px ;
+}
+
+#guardar{
+    position: absolute;
+    top:590px;
+    left:1105px;    
+}
+#valNombre{
+    position: absolute;
+    top:200px;
+    left:-35px;
+    width:500px ;
+}
+#valRealizacion{
+    position: absolute;
+    top:320px;
+    left:-35px;
+    width:500px ;
+}
+#valFechaEntrega{
+    position: absolute;
+    top:300px;
+    left:125px;
+    width: 300px;
+}
+
+#valTipoProyecto{
+    position: absolute;
+    top:200px;
+    left:395px;
+    width:500px ;  
+}
+
+#valCatalogo{
+    position: absolute;
+    top:530px;
+    left:455px;
+    width: 300px;
+}
+
+#valGrupo{
+    position: absolute;
+    top:530px;
+    left:-5px;
+    width: 300px;
+}
+
+

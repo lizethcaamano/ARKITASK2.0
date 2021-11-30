@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Actividades;
-use GuzzleHttp\Promise\Create;
+use App\Proyecto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\ActividadesRequest;
+
+
+
 class ActividadesController extends Controller
 {
     /**
@@ -15,9 +19,11 @@ class ActividadesController extends Controller
      */
     public function index()
     {
-        $actividades = Actividades::paginate(6);
-        return view('ModuloActividades.index')
-                    ->with("actividades", $actividades);
+        $Proyectos = Proyecto :: all();
+        $Actividades = Actividades::paginate(15);
+        return view('ModuloActividades.calendar')
+                    ->with("Actividades", $Actividades)->with("Proyectos", $Proyectos);
+
     }
 
     /**
@@ -27,32 +33,29 @@ class ActividadesController extends Controller
      */
     public function create()
     {
-        return view('ModuloActividades.createActividad');
+        $Proyectos = Proyecto :: all();
+        return view('ModuloActividades.index', compact('Proyectos'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(ActividadesRequest $request)
     {
 
-
-        
-
- 
-  
          $nuevaactividad = new Actividades();
-         $nuevaactividad -> NombreActividad = $request -> input("NombreActividad");
+         $nuevaactividad -> NombreActividad = $request -> input("nombreA");
          $nuevaactividad -> Descripcion = $request -> input("descripcion");
-         $nuevaactividad -> FechadePublicacion = $request -> input("FechadePublicacion");
-         $nuevaactividad -> FechaLimitedeEntrega = $request -> input("FechaLimitedeEntrega");
+         $nuevaactividad -> FechadePublicacion = Carbon::today();
+         $nuevaactividad -> FechaLimitedeEntrega = $request -> input("fechaLim");
+         $nuevaactividad -> Estado = "Activo";
+         $nuevaactividad -> IdProyectoFK = $request -> input("proyecto");
          $nuevaactividad ->save();
-
-     return redirect('actividades')
-           ->with("mensaje_exito", "Actividad registrada exitosamente");
+        if($nuevaactividad -> FechaLimitedeEntrega<$nuevaactividad -> FechadePublicacion ){
+             echo("La fecha de entrega no puede ser menor a la fecha actual");
+         }
+        else{
+            echo ("Guardado con exito");
+        }
+      return redirect('actividades')
+            ->with("mensaje_exito", "Actividad registrada exitosamente");
 
     }
 
@@ -78,11 +81,11 @@ class ActividadesController extends Controller
      */
     public function edit($id)
     {
-
+        $Proyectos = Proyecto :: all();
         $actividad = Actividades::find($id);
 
         return view('ModuloActividades.editActividad')
-                ->with('actividad', $actividad);
+                ->with('actividad', $actividad)->with("Proyectos", $Proyectos);;
     }
 
     /**
@@ -92,21 +95,18 @@ class ActividadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ActividadesRequest $request, $id)
     {
 
-
-        
-       
-
-
         $actividad = Actividades::find($id);
-
-        $actividad->NombreActividad = $request->input('NombreActividad');
-        $actividad->Descripcion = $request->input('descripcion');
-        $actividad->FechaLimitedeEntrega = $request->input('FechalimitedeEntrega');
-        $actividad->Estado = $request->input('Estado');
-        $actividad->save();
+        $actividad = new Actividades();
+        $actividad -> NombreActividad = $request -> input("nombreA");
+        $actividad -> Descripcion = $request -> input("descripcion");
+        $actividad -> FechadePublicacion = Carbon::today();
+        $actividad -> FechaLimitedeEntrega = $request -> input("fechaLim");
+        $actividad -> IdProyectoFK = $request -> input("proyecto");
+        $actividad -> Estado = $request -> input("estado");
+        $actividad ->save();
 
     return redirect('actividades')
           ->with("mensaje_exito", "Actividad  actualizada");

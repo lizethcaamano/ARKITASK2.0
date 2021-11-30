@@ -251,7 +251,11 @@ position: relative;
   position: relative;
 width: 100%;
   z-index: 1;
+<<<<<<< HEAD
   top: 90px;
+=======
+  top: 105px;
+>>>>>>> 87840d3af5e7ed022ebf21845bb5fea63d6ff7d2
   left: 45px;
 }
 .flex-wrap-input100 {
@@ -587,3 +591,22 @@ height: 80%;
   left: 95px;
 }
 
+<<<<<<< HEAD
+=======
+#valNumeroDocumento{
+position: absolute;
+width: 400px;
+top: 275px;
+left: 55px;
+}
+
+#valPassword{
+  position: absolute;
+  width: 400px;
+  top: 350px;
+  left: 55px;  
+  size: 20px;
+  color:rgb(209, 209, 221);
+
+}
+>>>>>>> 87840d3af5e7ed022ebf21845bb5fea63d6ff7d2
