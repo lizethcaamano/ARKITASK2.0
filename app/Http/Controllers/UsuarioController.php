@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuariosRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Auth\CambiarContrasenaController;
+use App\Mail\CambiarContrasenaMail;
+use App\Rol;
+
 // use App\Mail\CambiarContrasenaMail;
 
 class UsuarioController extends Controller
@@ -21,7 +24,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate(6);
+        $usuarios = User::paginate(10);
+        $usuarios-> each(function($usuarios){
+            $usuarios->Rol;
+
+        });
         return view ('Usuario.indexUsuario')
         ->with("usuarios",$usuarios);
     }
@@ -33,7 +40,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.createUsuario');
+        $rol=Rol::all();
+        return view('usuario.createUsuario')->with('rol', $rol);
     }
 
     /**
@@ -44,25 +52,29 @@ class UsuarioController extends Controller
      */
     public function store(UsuariosRequest $request)
     {
-        //$maxVal = User::all()->max('idusuario');
-        //$maxVal++;
+        $maxVal = User::all()->max('IdUsuario');
+        $maxVal++;
 
-        $maxvalue= User::all();
+
+        $contra= Str::random(12);
+        $guardarrol = new Rol();
         $nuevousuario = new User();
         $nuevousuario->Nombre = $request->input("nombre");
         $nuevousuario->Apellido = $request->input("apellido");
         $nuevousuario->email = $request->input("correo");
-        $nuevousuario->password =  Hash::make($request->input("password")); /*Hash::make(str::random(64))*/;
+        $nuevousuario->password =  Hash::make($contra); /*Hash::make(str::random(64))*/;
         $nuevousuario->NumeroDocumento = $request->input("numerodocumento");
         $nuevousuario->FechaNacimiento = $request->input("fechanacimiento");
         $nuevousuario->Telefono = $request->input("telefono");
         $nuevousuario->Imagen = $request->input("imagen");
+        $guardarrol->IdRolFK = $request->input("rol");
+
 
 
         $nuevousuario->save();
 
      //Enviar correo para el cambio de contraseña
-     Mail::to($request->input('correo'))->send(new TestMail($maxvalue));
+     Mail::to($request->input('correo'))->send(new CambiarContrasenaMail ($maxVal));
      //redireccionamiento  a una ruta especifica
        return redirect ('Usuario')->with('Creado','Se ha creado usuario  exitosamente');
     }

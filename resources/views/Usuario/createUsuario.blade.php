@@ -15,6 +15,21 @@
 <div>
 <form method="post" action="{{url('Usuario')}}">
     @csrf
+
+    <div class="form-group">
+        <label class="col-md-6 control-label" >Asignar Rol</label>
+        <select name="rol" class="form-control form-control-lg default-select">
+          <option value="">Seleccione</option>
+            @foreach ($rol as $roles)
+            <option value="{{$roles->IdRol}}">{{$roles->NombreRol}}</option>
+            @endforeach
+        </select>
+        <br>
+        <span class="text-danger">{{$errors->first("rol")}}</span>
+        <div class="col-md-4">
+        </div>
+      </div>
+
 <div class="mb-4 mt-6">
     <label for="nombre" class="form-label">Nombre de usuario:</label>
     <input type="text" value="{{old('nombre')}}" name="nombre" class="form-control " maxlength="25">

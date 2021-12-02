@@ -25,21 +25,19 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-         
-<<<<<<< HEAD
-                // "email"=> 'required|email',
-                "password"=>'required|min:8'    
-=======
-                
-                "password"=>'required|min:6'    
->>>>>>> 87840d3af5e7ed022ebf21845bb5fea63d6ff7d2
+
+                "email" => 'required|exists:Usuario,email|email',
+                "password"=>'required|min:6'
         ];
     }
 public function messages()
-{  
+{
 
 return [ 'NumeroDocumento.required' => 'Este campo es obligatorio',
-'password.required' => 'Este campo es obligatorio',
-'NumeroDocumento.numeric' => 'Solo se aceptan numeros'];
+'password.required' => 'La contraseña es obligatoria',
+'email.required' => 'El correo es obligatorio',
+'email.exists' => 'El correo no está registrado',
+'email.email' => 'Ingrese un correo valido'
+];
 }
 }

@@ -15,6 +15,9 @@
     @method('PUT')
     @csrf
     <fieldset>
+
+
+
 <div class="mb-4 mt-6">
     <label for="nombre" class="form-label">Nombre de usuario:</label>
     <input type="text" name="nombre" class="form-control" value="{{$usuario->Nombre}}">

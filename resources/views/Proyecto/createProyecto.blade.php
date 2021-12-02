@@ -1,8 +1,6 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<link rel="stylesheet" href="{{ asset ('css/crearProyecto.css')}}">
-
   <center>
 <form method="POST"  action="{{url('proyecto') }}" class="form-horizontal">
  @csrf

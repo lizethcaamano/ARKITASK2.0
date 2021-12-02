@@ -1,14 +1,25 @@
 
 
 @extends('Templates.administrador')
+
 @section('administrador_contenido')
 
+@section('titulo')
+    Asistencia
+@endsection
+<!-- Breadcrum!-->
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Asistencia Empleados</li>
+    </ol>
+  </nav>
 @if(session("mensaje_exito"))
     <div class="alert alert-primary text-left alert-di fade show">
          <strong>{{session("mensaje_exito")}}</strong>
          <button data-dismiss="alert" class="close"><span>&times;</span></button>
     </div>
     @endif
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -57,7 +68,6 @@
     </div>
 
     <div><a class="btn btn-success" href="{{url('asistencia/create')}}">Crear Asistencia</a></div> <br>
-
 
 @endsection
 

@@ -1,9 +1,10 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<link rel="stylesheet" href="{{ asset ('css/proyecto.css')}}">
-<link rel="stylesheet" href="jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css">
-<link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="{{ asset ('css/proyecto.css')}}">
+    <link rel="stylesheet" href="{{asset('jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
+
 <div style="height: 50px;"></div>
 
 <div class="row col-6">

@@ -1,8 +1,9 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<link rel="stylesheet" href="{{ asset ('css/crearProyecto.css')}}">
 <div class="container">
 
-<h1>{{$proyecto->NombreProyecto}} </h1><br><br><br>
+<h1 class="tituloproyecto">{{$proyecto->NombreProyecto}} </h1><br><br><br>
 
 
 <h3><strong>Codigo:</h3> {{$proyecto->CodigoProyecto}}</strong><br><br><br>
