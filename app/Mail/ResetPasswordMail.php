@@ -30,7 +30,7 @@ class ResetPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Reestablesca su contraseña Rockstar')
+        return $this->subject('Restablezca su contraseña ARKITASK')
                 ->view('emails.reset-link');
         //return $this->view('view.name');
     }

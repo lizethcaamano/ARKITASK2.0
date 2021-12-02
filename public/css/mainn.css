@@ -625,3 +625,18 @@ iframe {
     size: 20px;
     color: rgb(209, 209, 221);
 }
+
+#btnRecordarCorreo {
+    margin-top: 20%;
+    width: 80%;
+    left: 50px;
+}
+
+.mensajemirarcorreo {
+    position: absolute;
+    width: 400px;
+    top: 350px;
+    left: 55px;
+    size: 20px;
+    color: rgb(209, 209, 221);
+}

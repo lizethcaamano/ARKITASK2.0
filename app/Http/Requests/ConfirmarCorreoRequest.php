@@ -24,7 +24,7 @@ class ConfirmarCorreoRequest extends FormRequest
     public function rules()
     {
         return [
-            "email" => "required|email|exists:Users,email"
+            "email" => "required|email|exists:Usuario,email"
         ];
     }
 
@@ -33,7 +33,7 @@ class ConfirmarCorreoRequest extends FormRequest
         return [
             'email.required' => 'Este campo es obligatorio',
             'email.email' => 'Ingrese un correo valido',
-            'email.exists' => 'El correo no esta registrado'
+            'email.exists' => 'El correo no existe'
         ];
     }
 }
