@@ -39,7 +39,7 @@ class EncargadoProyectoController extends Controller
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
 
-        return view('Proyecto.createProyectoEncargado')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
+        return view('EncargadoProyecto.createProyectoEncargado')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
 
         return view('EncargadoProyecto.createProyectoEncargado');
 

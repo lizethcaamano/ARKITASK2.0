@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 <form method="POST" action="{{ url('gerente/Entregables/' . $entregable->IdArchivo) }}" class="form-horizontal" enctype="multipart/form-data">
     @method('PUT')
@@ -35,7 +35,7 @@
         <strong class="text-danger"> {{ $errors->first('estado')   }}  </strong>
         </div>
       </div>
-     
+
     <!-- Button -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="button"><br></label>

@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 <link rel="stylesheet" href="{{ asset ('css/crearProyecto.css')}}">
 

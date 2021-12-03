@@ -10,7 +10,7 @@
 
 
   <center>
-<form method="POST"  action="{{url('proyecto') }}" class="form-horizontal">
+<form method="POST"  action="{{url('encargado/Proyecto') }}" class="form-horizontal">
  @csrf
 
  <div class="card w-50 ">

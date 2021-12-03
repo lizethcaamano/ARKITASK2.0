@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 <br><br><br><br><br><br>
 <center>
@@ -19,7 +19,7 @@
                    @case(2)
                    <strong class="text-success">Entregable Aceptado</strong>
                    @break
-               @endswitch    
+               @endswitch
     </li>
     </ul>
     <a class="btn btn-warning" href="{{url('gerente/Entregables/')}}">Volver</a>

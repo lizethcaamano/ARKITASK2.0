@@ -1,16 +1,16 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="{{url('proyecto')}}">Generalidades Proyectos</a></li>
+      <li class="breadcrumb-item"><a href="{{url('gerente/Proyecto')}}">Generalidades Proyectos</a></li>
       <li class="breadcrumb-item active" aria-current="page">Crear nuevo proyecto</li>
     </ol>
   </nav>
 
 
   <center>
-<form method="POST"  action="{{url('proyecto') }}" class="form-horizontal">
+<form method="POST"  action="{{url('gerente/Proyecto') }}" class="form-horizontal">
  @csrf
 
  <div class="card w-50 ">
@@ -110,7 +110,7 @@
    <textarea value="{{old('descripcion')}}" name="descripcion" id="txDesc" cols="20" rows="9" class="form-control"></textarea>
     <!-- <span class="text-danger">{{$errors->first("descripcion")}}</span> -->
 </div><br>
-  
+
 
 </div><!-- fin card body -->
 

@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 <form method="POST" action="{{ url('gerente/Entregables/' . $entregable->IdArchivo) }}" class="form-horizontal">
     @method('PUT')
@@ -15,7 +15,7 @@
 
       <div class="col-md-4">
       <input   id="urlarchivo" name="urlarchivo" type="hidden" placeholder="" class="form-control input-md" value="{{$entregable->URLarchivo}}">
-     
+
       <label class="col-md-6 control-label" for="textname">Comentarios</label>
         <div class="col-md-6">
             <textarea   id="comentario" name="comentario" type="text" placeholder="" class="form-control input-md" ></textarea>
@@ -42,5 +42,5 @@
 
     </fieldset>
     </form>
- 
+
 @endsection
