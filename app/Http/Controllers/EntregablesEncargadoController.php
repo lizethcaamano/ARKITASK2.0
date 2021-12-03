@@ -8,7 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class EntregablesGerenteController extends Controller
+class EntregablesEncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.

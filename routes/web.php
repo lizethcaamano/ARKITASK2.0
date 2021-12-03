@@ -3,6 +3,8 @@
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\ActividadEncargadoController;
 use App\Http\Controllers\ActividadesGerenteController;
+use App\Http\Controllers\EncargadoProyectoController;
+use App\Http\Controllers\EntregablesEncargadoController;
 use App\Actividades;
 use App\Entregables;
 use Illuminate\Support\Facades\Route;
@@ -73,7 +75,7 @@ Route::get('reporte', 'AsistenciaController@reporte');
  Route::post('encargado/encargado/actividad/crear', [ActividadEncargadoController::class , 'store'])->name('actividad.store');
  Route::resource('encargado/Asistencia','AsistenciaEncargadoController');
  Route::resource('encargado/Entregables','EntregablesEncargadoController');
- Route::resource('encargado/Proyecto','EncargadoProyectoController');
+ Route::resource('encargado/Proyecto','ProyectoController');
  Route::resource('actividades', 'ActividadesController');
  Route::resource('entregables', 'EntregablesController');
  Route::get('entregables/{IdArchivo}/habilitar','EntregablesController@habilitar');

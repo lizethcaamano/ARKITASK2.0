@@ -1,7 +1,5 @@
 @extends('Templates.Encargado')
 @section('administrador_contenido')
-<<<<<<< HEAD
-=======
 
 
 
@@ -11,7 +9,6 @@
     </ol>
   </nav>
 
->>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
 <center><h1 class="text-lefth">Lista de Encargados</h1></center>
 <!-- @if (session("mensaje_exito"))
     <div>

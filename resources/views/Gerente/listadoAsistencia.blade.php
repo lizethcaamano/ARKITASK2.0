@@ -1,6 +1,6 @@
 
 
-@extends('Templates.Gerente')
+@extends('Templates.gerente')
 
 @section('administrador_contenido')
 

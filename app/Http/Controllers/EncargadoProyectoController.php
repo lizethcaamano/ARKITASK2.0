@@ -2,7 +2,9 @@
 
 
 use App\Catalogo;
+use App\EncargadoProyecto;
 use App\GrupoTrabajo;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Proyecto;
 use Illuminate\Support\Str;
@@ -37,7 +39,7 @@ class EncargadoProyectoController extends Controller
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
 
-        return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
+        return view('Proyecto.createProyectoEncargado')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
 
         return view('EncargadoProyecto.createProyectoEncargado');
 
@@ -63,12 +65,9 @@ class EncargadoProyectoController extends Controller
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");
         $nuevoencargado->Observaciones = $request->input("observaciones");
-
-
-
         //crear el nuevo recurso clienteDB::delete('delete users where name = ?', ['John'])
         $nuevoproyecto = new Proyecto();
-        $nuevoproyecto->CodigoProyecto ="$Proyecto";
+        $nuevoproyecto->CodigoProyecto = $request->input("codigo");
         $nuevoproyecto->NombreProyecto = $request->input("nombre");
         $nuevoproyecto->FechaRealizacion = $request->input("fechar");
         $nuevoproyecto->FechaEntrega = $request->input("fechae");
@@ -95,7 +94,7 @@ class EncargadoProyectoController extends Controller
     public function show($id)
     {
         $proyecto =Proyecto::find($id);
-        return view('Proyecto.verProyecto')
+        return view('Proyecto.verProyectoEncargado')
         ->with("proyecto",$proyecto);
     }
 
