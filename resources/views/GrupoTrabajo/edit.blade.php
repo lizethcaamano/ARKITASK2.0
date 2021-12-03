@@ -1,6 +1,6 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
-
+<link rel="stylesheet" href="{{ asset ('css/Integrantes.css')}}">
 <div class="container">
 <h1>Modificar grupos de proyecto</h1>
 
@@ -12,13 +12,7 @@
 <legend>Crear grupos de trabajo</legend>
 
 <!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Codigo de grupo</label>
-  <div class="col-md-4">
-  <input value="{{$grupo->CodigoGrupo}}" name="codigoe"  type="text" placeholder="" class="form-control input-md">
- <strong class="text-danger">{{$errors->first('codigoe')}}</strong>  
-  </div>
-</div>
+
 
 <!-- Text input-->
 <div class="form-group">
@@ -42,8 +36,206 @@
   <strong>{{$errors->first('desactivacion')}}</strong>
   </div>
 </div>
+<div class="mb-4 mt-6">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Cantidad de Integrantes del grupo</h4></label>
+    <select value="" name="selectGrupoTrabajo" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+          <option value="div1">1</option>
+          <option value="div2">2</option>
+          <option value="div3">3</option>
+          <option value="div4">4</option>
+          <option value="div5">5</option>
+          <option value="div6">6</option>
 
+         
+         
+      </select>
+</div>
+      
+<div id="pai">
 
+<div class="mb-4 mt-6" id="div1">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+     
+      </select>
+</div>
+      
+<div class="mb-4 mt-6" id="div2">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+<br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+</div>
+
+<div class="mb-4 mt-6" id="div3">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+</div>
+
+<div class="mb-4 mt-6" id="div4">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+</div>
+
+<div class="mb-4 mt-6" id="div5">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+</div>
+
+<div class="mb-4 mt-6" id="div6">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo 6</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach  
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+      <br>
+      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
+    <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($usuarios as $usuario )
+          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
+          @endforeach
+      </select>
+</div>
+</div>
+     
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>
@@ -55,5 +247,8 @@
 </fieldset>
 </form>
 </div>
+
+<script src="{{ asset ('jquery/jquery-3.3.1.min.js')}}"></script>
+<script src="{{ asset ('js/Integrantes.js')}}"></script>
 
 @endsection

@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="estilos.css">
 <div style="height: 50px;"></div>
    
-<div class="row col-6">
+<!-- <div class="row col-6">
 <canvas id="myChart" width="400" height="400"></canvas>
-</div>
+</div> -->
 
 <a href="{{url('proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
 
@@ -26,7 +26,7 @@
             <div class="card__descripcion">
                 <p>Fecha de entrega: {{ $proyecto->FechaEntrega}}</p>
                 <p>Fecha de Realizacion: {{ $proyecto->FechaRealizacion}}</p>
-                <p>Tipo de Proyecto: </p>
+              
                 <p>Estado: {{ $proyecto->Estado}}</p>
                 
             </div>

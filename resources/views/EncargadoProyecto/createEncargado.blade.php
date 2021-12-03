@@ -24,6 +24,38 @@
    <textarea value="{{old('observaciones')}}" name="observaciones" id="" cols="20" rows="9" class="form-control"></textarea>
     <span class="text-danger">{{$errors->first("observaciones")}}</span>
 </div><br>
+
+<div class="mb-4 mt-6">
+    <label class="form-label" id="tipoProyecto" for="textinput"><h4>Proyecto</h4></label>
+  
+    <select value="" id="inputTipoProyecto" name="idproyectofk" class="form-control">
+        <option value="">Seleccione</option>
+          @foreach ($proyecto as $proyecto)
+          <option value="{{$proyecto->IdProyecto}}">Nombre: {{$proyecto->NombreProyecto}}  // Codigo: {{$proyecto->CodigoProyecto}}     </option>
+          @endforeach
+      </select>
+     <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
+   
+  </div>
+  
+
+  <div class="mb-4 mt-6">
+    <label class="form-label" id="tipoProyecto" for="textinput"><h4>Asignar Encargado</h4></label>
+  
+    <select value="" id="inputTipoProyecto" name="idusuariofk" class="form-control">
+        <option value="">Seleccione</option>
+          @foreach ($usuario as $usuario)
+      
+          <option value="{{$usuario->IdUsuario}}">  {{$usuario->Nombre}}  </option>
+      
+          @endforeach
+      </select>
+     <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
+   
+  </div>
+  
+
+
 <div class="d-grid gap-2 col-6 mx-aito">
     <button type="submit"  class="btn btn-primary">Guardar</button>
 </div>

@@ -2,8 +2,8 @@
     position:absolute;
     left:700px  ;
     width: 500px;
-    height: 700px;
-    background-color:#ffffff
+    height: 850px;
+    background-color:#fdfafa
 
 
 }
@@ -102,7 +102,7 @@
 
 #guardar{
     position: absolute;
-    top:590px;
+    top:750px;
     left:1105px;    
 }
 #valNombre{
@@ -145,4 +145,16 @@
     width: 300px;
 }
 
+#labelDesc{
+    position: absolute;
+    top:540px;
+    left:50px;
+}
 
+#txDesc{
+    position: absolute;
+    top:575px;
+    left:35px;
+    height:150px ;
+    width: 855px ;
+}

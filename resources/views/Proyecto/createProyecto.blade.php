@@ -42,7 +42,7 @@
     <select value="{{old('IdTipoProyectoFK')}}" id="inputTipoProyecto" name="tipopro" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($tipopro as $tipo)
-          <option value="{{$tipo->IdTipoProyectoFK}}">{{$tipo->NombreTipoProyecto}}</option>
+          <option value="{{$tipo->IdTipoProyecto}}">{{$tipo->NombreTipoProyecto}}</option>
           @endforeach
       </select>
      <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
@@ -73,10 +73,10 @@
 
 <div class="mb-4 mt-6">
     <label class="form-label" id="labelGrupoTrabajo"><h4>Grupo Trabajo</h4></label>
-    <select value="{{old('IdGrupoFK')}}" name="IdGrupoFK" id="selectGrupoTrabajo" class="form-control">
+    <select value="{{old('IdGrupoFK')}}" name="grupo" id="selectGrupoTrabajo" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($grupo as $grupos)
-          <option value="{{$grupos->IdGrupoFK}}">{{$grupos->CodigoGrupo}}</option>
+          <option value="{{$grupos->IdGrupo}}">{{$grupos->CodigoGrupo}}</option>
           @endforeach
       </select>
 
@@ -91,12 +91,19 @@
     <select value="{{old('IdGrupoFK')}}" id="selectCatalogo" name="catalogo" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($catalogo as $catalogos)
-          <option value="{{$catalogos->IdFKGrupo}}">{{$catalogos->EmpresaContratante}}</option>
+          <option value="{{$catalogos->IdCatalogo}}">{{$catalogos->EmpresaContratante}}</option>
           @endforeach
       </select>
      <!-- <strong class="text-danger" id="valCatalogo">{{$errors->first('catalogo')}}</strong> -->
     
   </div>
+
+  <div class="mb-4 mt-6">
+    <label for="observaciones" class="form-label" id="labelDesc"><h4>Descripción:</h4></label>
+   <textarea value="{{old('descripcion')}}" name="descripcion" id="txDesc" cols="20" rows="9" class="form-control"></textarea>
+    <!-- <span class="text-danger">{{$errors->first("descripcion")}}</span> -->
+</div><br>
+  
 
 </div><!-- fin card body -->
 

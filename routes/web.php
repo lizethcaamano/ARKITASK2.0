@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\AsistenciaController;
+use App\Http\Controllers\ActividadesController;
+use App\Actividades;
+use App\Entregables;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
@@ -63,9 +65,23 @@ Route::get('reporte', 'AsistenciaController@reporte');
  Route::post('login','Auth\LoginController@login');
  Route::get('logout','Auth\LoginController@logout');
 
+ Route::resource('gerente/Entregables','EntregablesGerenteController')->middleware('miautenticacion');
+ Route::resource('gerente/Actividades','ActividadesGerenteController')->middleware('miautenticacion');
+ Route::resource('actividades', 'ActividadesController')->middleware('miautenticacion');
+ Route::resource('entregables', 'EntregablesController');
+ Route::get('entregables/{IdArchivo}/habilitar','EntregablesController@habilitar');
+ Route::get('gerente/Entregables/{IdArchivo}/habilitar','EntregablesGerenteController@habilitar');
+ Route::get('/entregables/{IdArchivo}/rechazado', [Entregables::class , 'rechazado']);
+ Route::post('/actividad/crear', [ActividadesController::class , 'store'])->name('actividad.store');
+ Route::get('/actividad/editar', [ActividadesController::class , 'update'])->name('actividad.update');
+ Route::get('/actividad/json', function (Actividades $actividad) {
+     $actividad = Actividades::all();
+     return $actividad;
+ });
+
   //Auth::Routes();
   Route::get('prueba-email', function(){
-    
+
     Mail::to('jsgaravito90@misena.edu.co')
     ->send(new TestMail() );
     die ('correo enviado');

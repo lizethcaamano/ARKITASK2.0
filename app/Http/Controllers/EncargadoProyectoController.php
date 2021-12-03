@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\EncargadoProyecto;
+use App\Proyecto;
+use App\User;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Requests\encargadoProyectoRequest;
 
@@ -16,6 +19,10 @@ class EncargadoProyectoController extends Controller
     public function index()
     {
         $encargados = EncargadoProyecto::paginate(6);
+        $encargados->each(function($encargados){
+            $encargados->EncargadoProyecto;
+            $encargados->usuario;
+        });
         return view ('encargadoProyecto.indexEncargado')
         ->with("encargados",$encargados);
     }
@@ -27,7 +34,22 @@ class EncargadoProyectoController extends Controller
      */
     public function create()
     {
-        return view('encargadoProyecto.createEncargado');
+    //     $User=  
+    //     DB::table('AsignarRol')
+    //    ->where ('IdRolFK','=','3')
+    //    ->get ();
+        $usuario= User::all();
+      
+
+       
+        $proyecto= DB::table('proyecto')
+        ->where ('Estado','=','Proceso')
+        ->get ();
+
+     
+      
+;
+        return view('encargadoProyecto.createEncargado')->with('proyecto',$proyecto)->with('usuario',$usuario);
     }
 
     /**
@@ -38,11 +60,16 @@ class EncargadoProyectoController extends Controller
      */
     public function store(encargadoProyectoRequest $request)
     {
+        
+       
+        
         $nuevoencargado = new EncargadoProyecto();
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");
         $nuevoencargado->Observaciones = $request->input("observaciones");
-    
+        $nuevoencargado->IdProyectoFK= $request->input("idproyectofk");
+        $nuevoencargado->IdUsuarioFK= $request->input("idusuariofk");
+
         $nuevoencargado->save();
      //redireccionamiento  a una ruta especifica 
      return redirect ('Encargado')->with('Creado','Se ha creado el encargado de proyectos  exitosamente');

@@ -57,9 +57,20 @@
  <span class="text-danger">{{$errors->first("imagen")}}</span> 
 </div>
 
+<div class="mb-4 mt-6" id="div1">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Asignar Rol</h4></label>
+    <select value="{{old('IdUsuarioFK')}}" name="usuariofk" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($rol as $rol )
+          <option value="{{$rol->IdRol}}">{{$rol->NombreRol}}</option>
+          @endforeach
+     
+      </select>
+</div>
 
 
-<input type="password" value="{{old('password')}}" name="password" class="form-control" >
+
+
 
 
 
