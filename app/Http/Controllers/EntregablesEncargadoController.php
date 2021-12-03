@@ -18,7 +18,7 @@ class EntregablesEncargadoController extends Controller
     public function index()
     {
         $Entregables = Entregables::paginate(15);
-        return view('Gerente.index')
+        return view('EncargadoProyecto.indexEntregable')
                     ->with("Entregables", $Entregables);
     }
 
@@ -31,7 +31,7 @@ class EntregablesEncargadoController extends Controller
     {
         $Usuarios = User :: all();
         $Actividades = Actividades :: all();
-        return view('Gerente.createEntregable')
+        return view('EncargadoProyecto.createEntregable')
         ->with("Actividades", $Actividades)->with("Usuarios", $Usuarios);
     }
 
