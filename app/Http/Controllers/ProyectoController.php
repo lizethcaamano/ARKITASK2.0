@@ -11,6 +11,7 @@ use App\Http\Requests\ProyectoRequest;
 use App\TipoProyecto;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class ProyectoController extends Controller
 {
@@ -24,12 +25,24 @@ class ProyectoController extends Controller
          if(Auth::check()){
 
 
+<<<<<<< HEAD
+          
+
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
         $proyectos = Proyecto:: all();
+   
         $proyectos-> each(function($proyectos){
             $proyectos->TipoProyecto;
             $proyectos->grupo;
             $proyectos->catalogo;
+
+           
+
         }
+   
+   
+
         );
         return view ('proyecto.indexproyecto')->with("proyectos", $proyectos);
 
@@ -75,6 +88,7 @@ $Proyecto= Str::random(4);
         $nuevoproyecto->IdTipoProyectoFK = $request->input("tipopro");
         $nuevoproyecto->IdGrupoFK = $request->input("grupo");
         $nuevoproyecto->IdCatalogoFK = $request->input("catalogo");
+        $nuevoproyecto->Descripcion = $request->input("descripcion");
         $nuevoproyecto->Estado ="Proceso";
 
 
@@ -93,9 +107,16 @@ $Proyecto= Str::random(4);
      */
     public function show($id)
     {
-        $proyecto =Proyecto::find($id);
+    
+        $proyectos =Proyecto::find($id);
+
+        $TipoProyecto=TipoProyecto::find($proyectos);
+
+        $grupo= GrupoTrabajo::find($proyectos);
+        
+        
         return view('proyecto.verProyecto')
-        ->with("proyecto",$proyecto);
+        ->with("proyectos",$proyectos) ->with("grupo",$grupo)->with("Tipopro",$TipoProyecto);
     }
 
     /**
@@ -106,11 +127,19 @@ $Proyecto= Str::random(4);
      */
     public function edit($id)
     {
-        $tipopro=TipoProyecto::all($id);
-        $proyecto = Proyecto::find($id);
+      
         $grupo = GrupoTrabajo::all();
+        $proyecto = Proyecto::find($id);
+    
+      
+        $tipopro=TipoProyecto::all();
+        
+       
         $catalogo = Catalogo::all();
-        return view('proyecto.editProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)->with('proyecto',$proyecto);
+        return view('proyecto.editProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)
+        ->with('proyecto',$proyecto);
+        
+        
     }
 
     /**
@@ -135,6 +164,7 @@ $Proyecto= Str::random(4);
         $proyecto->FechaEntrega = $request->input("fechae");
         $proyecto->IdTipoProyectoFK = $request->input("tipopro");
         $proyecto->IdGrupoFK = $request->input("grupo");
+        $proyecto->Descripcion = $request->input("descripcion");
         $proyecto->save();
         return redirect("proyecto")
         ->with("mensaje", "Proyecto actualizado");

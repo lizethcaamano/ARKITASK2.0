@@ -13,9 +13,12 @@
 
 <div class="container">
 <strong><h3>Fecha de Inicio: {{$grupo->FechaInicio}}</strong></h3>
-<h3><strong>Fecha de  Desactivacion: {{$grupo->FechaDesactivacion}}</strong></h3>
+<h3><strong>Fecha de  Desactivacion: {{$grupo->FechaDesactivacion}}</strong></h3><h3>
+<strong>Integrantes:</strong></h3>
+@foreach ($Integrantes as $proyecto)
 
-<h3><strong>Integrantes del grupo: {{$usuarios->Nombre}}</strong></h3>
+         <p value="{{$proyecto->IdGrupoFK}}"> {{$usuarios->Nombre}}    </p>
+          @endforeach
 <a class="btn btn-primary" href="{{url('Grupo/'.$grupo->IdGrupo.'/edit' )}}">Actualizar</a>
 </center>
 </div>

@@ -11,5 +11,8 @@ class EncargadoProyecto extends Model
     protected $primaryKey = "IdEncargado";
     public $timestamps = false;
 
+    public function EncargadoProyecto(){
+        return $this->belongsTo('App\Proyecto', 'IdProyectoFK', 'IdProyecto');
+    }
 
 }

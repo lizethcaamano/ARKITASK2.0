@@ -1,5 +1,7 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<<<<<<< HEAD
+=======
 
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -8,10 +10,13 @@
     </ol>
   </nav>
 
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 <form method="POST" action="{{ url('entregables') }}" class="form-horizontal" enctype="multipart/form-data">
     @csrf
     <fieldset>
 
+    <!-- Form Name -->
+    <legend>Nuevo Entregable</legend>
 
     <!-- Text input-->
     <div class="form-group">
@@ -69,4 +74,8 @@
 
     </fieldset>
     </form>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 @endsection

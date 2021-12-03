@@ -156,7 +156,10 @@ class EntregablesGerenteController extends Controller
         return redirect()->route('Gerente.index')
             ->with('mensaje_exito', ' archivo eliminando correctamente ');
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
     public function habilitar($IdArchivo){
         $entregables = Entregables::find($IdArchivo);
         switch($entregables->Estado){
