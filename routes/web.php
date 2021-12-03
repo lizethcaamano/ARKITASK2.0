@@ -38,7 +38,7 @@ Route::resource('catalogo', 'CatalogoController')->middleware('miautenticacion')
 
 Route::resource('Usuario','UsuarioController');
 
-Route::resource('Encargado','EncargadoProyectoController')->middleware('miautenticacion');
+Route::resource('Encargado','EncargadoController')->middleware('miautenticacion');
 
 Route::resource('Grupo','GruposTrabajoController')->middleware('miautenticacion');
 
@@ -65,8 +65,11 @@ Route::get('reporte', 'AsistenciaController@reporte');
 
  Route::resource('gerente/Entregables','EntregablesGerenteController');
  Route::resource('gerente/Actividades','ActividadesGerenteController');
+ Route::resource('gerente/Asistencia','AsistenciaGerenteController');
+ Route::resource('gerente/Proyecto','GerenteProyectoController');
  Route::post('gerente/gerente/actividad/crear', [ActividadesGerenteController::class , 'store'])->name('actividad.store');
  Route::resource('encargado/Actividades','ActividadEncargadoController');
+ Route::post('encargado/Proyecto/crear', [EncargadoProyectoController::class , 'store'])->name('encargado.store');
  Route::post('encargado/encargado/actividad/crear', [ActividadEncargadoController::class , 'store'])->name('actividad.store');
  Route::resource('encargado/Asistencia','AsistenciaEncargadoController');
  Route::resource('encargado/Entregables','EntregablesEncargadoController');

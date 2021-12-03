@@ -1,4 +1,4 @@
-@extends('Templates.gerente')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -48,7 +48,7 @@
     <select value="{{old('IdTipoProyectoFK')}}" id="inputTipoProyecto" name="tipopro" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($tipopro as $tipo)
-          <option value="{{$tipo->IdTipoProyecto}}">{{$tipo->NombreTipoProyecto}}</option>
+          <option value="{{$tipo->IdTipoProyectoFK}}">{{$tipo->NombreTipoProyecto}}</option>
           @endforeach
       </select>
      <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
@@ -80,10 +80,10 @@
 
 <div class="mb-4 mt-6">
     <label class="form-label" id="labelGrupoTrabajo"><h4>Grupo Trabajo</h4></label>
-    <select value="{{old('IdGrupoFK')}}" name="grupo" id="selectGrupoTrabajo" class="form-control">
+    <select value="{{old('IdGrupoFK')}}" name="IdGrupoFK" id="selectGrupoTrabajo" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($grupo as $grupos)
-          <option value="{{$grupos->IdGrupo}}">{{$grupos->CodigoGrupo}}</option>
+          <option value="{{$grupos->IdGrupoFK}}">{{$grupos->CodigoGrupo}}</option>
           @endforeach
       </select>
 
@@ -98,19 +98,12 @@
     <select value="{{old('IdGrupoFK')}}" id="selectCatalogo" name="catalogo" class="form-control">
         <option value="">Seleccione</option>
           @foreach ($catalogo as $catalogos)
-          <option value="{{$catalogos->IdCatalogo}}">{{$catalogos->EmpresaContratante}}</option>
+          <option value="{{$catalogos->IdFKGrupo}}">{{$catalogos->EmpresaContratante}}</option>
           @endforeach
       </select>
      <!-- <strong class="text-danger" id="valCatalogo">{{$errors->first('catalogo')}}</strong> -->
 
   </div>
-
-  <div class="mb-4 mt-6">
-    <label for="observaciones" class="form-label" id="labelDesc"><h4>Descripción:</h4></label>
-   <textarea value="{{old('descripcion')}}" name="descripcion" id="txDesc" cols="20" rows="9" class="form-control"></textarea>
-    <!-- <span class="text-danger">{{$errors->first("descripcion")}}</span> -->
-</div><br>
-  
 
 </div><!-- fin card body -->
 

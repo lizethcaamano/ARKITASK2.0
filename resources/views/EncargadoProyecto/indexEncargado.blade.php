@@ -1,5 +1,7 @@
-@extends('Templates.administrador')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
+<<<<<<< HEAD
+=======
 
 
 
@@ -9,6 +11,7 @@
     </ol>
   </nav>
 
+>>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
 <center><h1 class="text-lefth">Lista de Encargados</h1></center>
 <!-- @if (session("mensaje_exito"))
     <div>
@@ -17,8 +20,30 @@
         </strong>
     </div>
 @endif -->
+<<<<<<< HEAD
+<table class="table table-dark">
+    <thead>
+        <tr class="table table-primary">
+            <th>Fecha de Inicio</th>
+            <th>Fecha final</th>
+            <th>Observaciones</th>
+            <th>Id Proyecto</th>
+            <th>Id Usuario</th>
+        </tr>
+    </thead>
+    <tbody >
+    @foreach($encargados as $encargado )
+=======
+>>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
 
 
+<<<<<<< HEAD
+            <td>{{ $encargado->FechaInicio}}</td>
+            <td>{{ $encargado->FechaFinal}}</td>
+            <td>{{ $encargado->Observaciones}}</td>
+            <td><a class="btn btn-outline-secondary" href="{{ url('EncargadoProyecto/'.$encargadoProyecto->IdEncargado)}}">Ver Detalles </a></td>
+           <td> <a class="btn btn-outline-info" href="{{ url('EncargadoProyecto/'.$encargadoProyecto->IdEncargado.'/edit')}}"> Actualizar </a></td>
+=======
 
  <div class="row">
     <div class="col-12">
@@ -42,6 +67,7 @@
                         </thead>
                         <tbody >
                             @foreach($encargados as $encargado )
+>>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
 
                             <tr>
 
@@ -63,6 +89,6 @@
     </div>
 
 
-<a class="btn btn-primary" href="{{ url('Encargado/create') }}">Nuevo Encargado</a>
+<a  Class = "btn btn-info " href="{{ url('EncargadoProyecto/create') }}">Nuevo Encargado</a>
 
 @endsection

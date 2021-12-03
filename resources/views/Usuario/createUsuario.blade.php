@@ -1,4 +1,4 @@
-@extends('Templates.administrador')
+@extends('Templates.Gerente')
 @section('administrador_contenido')
 
 <nav aria-label="breadcrumb">

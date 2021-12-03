@@ -145,13 +145,21 @@
                     </li>
 
                     <li>
+<<<<<<< HEAD
+                        <a href="{{url('gerente/Proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+=======
                         <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+<<<<<<< HEAD
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
+>>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
+>>>>>>> fd7436a9124b836ad81c3af7a8c239a8089c1d96
                             <i class="flaticon-381-folder-8"></i>
                             <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('gerente/Asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <span class="nav-text">Asistencia</span>
                         </a>

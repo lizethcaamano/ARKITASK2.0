@@ -12,7 +12,7 @@
       </nav>
 
 
-<a href="{{url('encargado/Proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
+<a href="{{url('proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
 
 <div class="container">
 @foreach ($proyectos as $proyecto)

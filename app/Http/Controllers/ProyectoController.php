@@ -90,7 +90,7 @@ $Proyecto= Str::random(4);
         $nuevoproyecto->save();
      //redireccionamiento  a una ruta especifica
 
-     return redirect ('proyecto')->with('Creado','Se ha creado exitosamente');
+     return redirect ('gerente/Proyecto')->with('Creado','Se ha creado exitosamente');
     }
 
 
