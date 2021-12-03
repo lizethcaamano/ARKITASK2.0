@@ -1,15 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< HEAD
-=======
-use App\EncargadoProyecto;
-use App\Proyecto;
-use App\User;
-use DB;
-use Illuminate\Http\Request;
-use App\Http\Requests\encargadoProyectoRequest;
->>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
 
 use App\Catalogo;
 use App\GrupoTrabajo;
@@ -76,25 +67,25 @@ class EncargadoProyectoController extends Controller
         return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
 =======
 <<<<<<< HEAD
-    //     $User=  
+    //     $User=
     //     DB::table('AsignarRol')
     //    ->where ('IdRolFK','=','3')
     //    ->get ();
         $usuario= User::all();
-      
 
-       
+
+
         $proyecto= DB::table('proyecto')
         ->where ('Estado','=','Proceso')
         ->get ();
 
-     
-      
+
+
 ;
         return view('encargadoProyecto.createEncargado')->with('proyecto',$proyecto)->with('usuario',$usuario);
 =======
         return view('EncargadoProyecto.createProyectoEncargado');
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
+>>>>>>> 7ae984279a66110dc01e8714b8dee6f3defe91f
 >>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
     }
 
@@ -113,9 +104,9 @@ $Proyecto= Str::random(4);
 
 
 =======
-        
-       
-        
+
+
+
         $nuevoencargado = new EncargadoProyecto();
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");

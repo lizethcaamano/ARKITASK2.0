@@ -3,15 +3,10 @@
 namespace App\Http\Controllers\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
 use App\Rol;
 use App\Providers\RouteServiceProvider;
-
-
-=======
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 use Illuminate\Support\Facades\Auth;
-use App\Rol;
+
 
 class LoginController extends Controller
 {
@@ -32,11 +27,6 @@ switch(Auth::user()->Rol()->first()->NombreRol){
             case "Administrador": return redirect("Usuario");
              break;
              case "Gerente": return redirect("gerente/Entregables");
-<<<<<<< HEAD
-=======
-             break;
-             case "Encargado Proyecto": return redirect("encargado/Asistencia");
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
              break;
             }
             }
@@ -63,11 +53,7 @@ var_dump(Auth::user());
                break;
                case "Gerente": return redirect("gerente/Entregables");
                break;
-<<<<<<< HEAD
                case "Encargado Proyecto": return redirect("asistencia");
-=======
-               case "Encargado Proyecto": return redirect("encargado/Asistencia");
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
                break;
  }
 
