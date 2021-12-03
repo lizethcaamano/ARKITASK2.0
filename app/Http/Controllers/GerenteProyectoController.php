@@ -12,7 +12,7 @@ use App\TipoProyecto;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
-class ProyectoController extends Controller
+class GerenteProyectoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,7 +31,7 @@ class ProyectoController extends Controller
             $proyectos->catalogo;
         }
         );
-        return view ('proyecto.indexproyecto')->with("proyectos", $proyectos);
+        return view ('Gerente.indexProyectoEncargado')->with("proyectos", $proyectos);
 
      }else{
          return route('login');
@@ -81,7 +81,7 @@ $Proyecto= Str::random(4);
         $nuevoproyecto->save();
      //redireccionamiento  a una ruta especifica
 
-     return redirect ('gerente/Proyecto')->with('Creado','Se ha creado exitosamente');
+     return redirect ('gerente/Proyecto/crear')->with('Creado','Se ha creado exitosamente');
     }
 
 
@@ -94,7 +94,7 @@ $Proyecto= Str::random(4);
     public function show($id)
     {
         $proyecto =Proyecto::find($id);
-        return view('proyecto.verProyecto')
+        return view('Proyecto.verProyecto')
         ->with("proyecto",$proyecto);
     }
 
@@ -110,7 +110,7 @@ $Proyecto= Str::random(4);
         $proyecto = Proyecto::find($id);
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
-        return view('proyecto.editProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)->with('proyecto',$proyecto);
+        return view('Gerente.editProyectoEncargado')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)->with('proyecto',$proyecto);
     }
 
     /**
@@ -136,7 +136,7 @@ $Proyecto= Str::random(4);
         $proyecto->IdTipoProyectoFK = $request->input("tipopro");
         $proyecto->IdGrupoFK = $request->input("grupo");
         $proyecto->save();
-        return redirect("proyecto")
+        return redirect("gerente/Proyecto")
         ->with("mensaje", "Proyecto actualizado");
     }
 

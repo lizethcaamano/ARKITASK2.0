@@ -1,6 +1,6 @@
 
 
-@extends('Templates.Encargado')
+@extends('Templates.Gerente')
 
 @section('administrador_contenido')
 
@@ -27,6 +27,8 @@
 
             <div class="card-body">
                 <div class="table-responsive">
+
+                    <div><a class="btn btn-success" href="{{url('reporte')}}">Reporte</a></div> <br>
 
                     <table id="example" class="display min-w850">
                         <thead>
@@ -62,8 +64,6 @@
             </div>
         </div>
     </div>
-
-    <div><a class="btn btn-success" href="{{url('asistencia/create')}}">Crear Asistencia</a></div> <br>
 
 @endsection
 

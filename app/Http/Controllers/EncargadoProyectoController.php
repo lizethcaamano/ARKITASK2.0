@@ -1,10 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\EncargadoProyecto;
-use Illuminate\Http\Request;
-use App\Http\Requests\encargadoProyectoRequest;
 
+use App\Catalogo;
+use App\GrupoTrabajo;
+use Illuminate\Http\Request;
+use App\Proyecto;
+use Illuminate\Support\Str;
+use App\Http\Requests\ProyectoRequest;
+use App\TipoProyecto;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 class EncargadoProyectoController extends Controller
 {
@@ -15,9 +21,21 @@ class EncargadoProyectoController extends Controller
      */
     public function index()
     {
-        $encargados = EncargadoProyecto::paginate(6);
-        return view ('EncargadoProyecto.indexProyectoEncargado')
-        ->with("encargados",$encargados);
+         if(Auth::check()){
+
+
+        $proyectos = Proyecto:: all();
+        $proyectos-> each(function($proyectos){
+            $proyectos->TipoProyecto;
+            $proyectos->grupo;
+            $proyectos->catalogo;
+        }
+        );
+        return view ('EncargadoProyecto.indexProyectoEncargado')->with("proyectos", $proyectos);
+
+     }else{
+         return route('login');
+     }
     }
 
     /**
@@ -27,7 +45,11 @@ class EncargadoProyectoController extends Controller
      */
     public function create()
     {
-        return view('EncargadoProyecto.createProyectoEncargado');
+        $tipopro=TipoProyecto::all();
+        $grupo = GrupoTrabajo::all();
+        $catalogo = Catalogo::all();
+
+        return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
     }
 
     /**
@@ -36,17 +58,32 @@ class EncargadoProyectoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(encargadoProyectoRequest $request)
+    public function store(ProyectoRequest $request)
     {
-        $nuevoencargado = new EncargadoProyecto();
-        $nuevoencargado->FechaInicio = $request->input("fechaInicio");
-        $nuevoencargado->FechaFinal = $request->input("fechaFinal");
-        $nuevoencargado->Observaciones = $request->input("observaciones");
+//$array = [1,2,3,4,5,6,7,8,9];
+$Proyecto= Str::random(4);
 
-        $nuevoencargado->save();
+
+
+
+        //crear el nuevo recurso clienteDB::delete('delete users where name = ?', ['John'])
+        $nuevoproyecto = new Proyecto();
+        $nuevoproyecto->CodigoProyecto ="Proy$Proyecto";
+        $nuevoproyecto->NombreProyecto = $request->input("nombre");
+        $nuevoproyecto->FechaRealizacion = $request->input("fechar");
+        $nuevoproyecto->FechaEntrega = $request->input("fechae");
+        $nuevoproyecto->IdTipoProyectoFK = $request->input("tipopro");
+        $nuevoproyecto->IdGrupoFK = $request->input("grupo");
+        $nuevoproyecto->IdCatalogoFK = $request->input("catalogo");
+        $nuevoproyecto->Estado ="Proceso";
+
+
+        $nuevoproyecto->save();
      //redireccionamiento  a una ruta especifica
-     return redirect ('encargado/Proyecto')->with('Creado','Se ha creado el encargado de proyectos  exitosamente');
+
+     return redirect ('encargado/Proyecto/crear')->with('Creado','Se ha creado exitosamente');
     }
+
 
     /**
      * Display the specified resource.
@@ -56,9 +93,9 @@ class EncargadoProyectoController extends Controller
      */
     public function show($id)
     {
-        $encargado =EncargadoProyecto::find($id);
-        return view('EncargadoProyecto.showProyectoEncargado')
-        ->with("encargado",$encargado);
+        $proyecto =Proyecto::find($id);
+        return view('Proyecto.verProyecto')
+        ->with("proyecto",$proyecto);
     }
 
     /**
@@ -69,8 +106,11 @@ class EncargadoProyectoController extends Controller
      */
     public function edit($id)
     {
-        $encargado = EncargadoProyecto::find($id);
-        return view('EncargadoProyecto.editProyectoEncargado')->with('encargado',$encargado);
+        $tipopro=TipoProyecto::all($id);
+        $proyecto = Proyecto::find($id);
+        $grupo = GrupoTrabajo::all();
+        $catalogo = Catalogo::all();
+        return view('EncargadoProyecto.editProyectoEncargado')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo)->with('proyecto',$proyecto);
     }
 
     /**
@@ -80,19 +120,24 @@ class EncargadoProyectoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(encargadoProyectoRequest $request, $id)
+    public function update(ProyectoRequest $request, $id)
     {
-        $encargado= EncargadoProyecto::find($id);
+
+
+
+        $proyecto= Proyecto::find($id);
         //actualizar el estado del recurso
         //en virtud de los datos que vengan de los formularios
 
-        $encargado->FechaInicio = $request->input("fechaInicio");
-        $encargado->FechaFinal = $request->input("fechaFinal");
-        $encargado->Observaciones = $request->input("observaciones");
-
-        $encargado->save();
+        $proyecto->CodigoProyecto = $request->input("codigo");
+        $proyecto->NombreProyecto = $request->input("nombre");
+        $proyecto->FechaRealizacion = $request->input("fechar");
+        $proyecto->FechaEntrega = $request->input("fechae");
+        $proyecto->IdTipoProyectoFK = $request->input("tipopro");
+        $proyecto->IdGrupoFK = $request->input("grupo");
+        $proyecto->save();
         return redirect("encargado/Proyecto")
-        ->with("mensaje", "El encargado  ha sido actualizado");
+        ->with("mensaje", "Proyecto actualizado");
     }
 
     /**

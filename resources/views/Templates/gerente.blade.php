@@ -145,13 +145,13 @@
                     </li>
 
                     <li>
-                        <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('gerente/Proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-folder-8"></i>
                             <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('gerente/Asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <span class="nav-text">Asistencia</span>
                         </a>
