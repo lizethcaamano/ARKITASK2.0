@@ -12,11 +12,7 @@
 
 <div class="container">
 
-<<<<<<< HEAD
-<h1>{{$proyectos->NombreProyecto}} </h1><br><br><br>
-=======
 <h1 class="tituloproyecto">{{$proyecto->NombreProyecto}} </h1><br><br><br>
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 
 <h3><strong>Codigo:</h3> {{$proyectos->CodigoProyecto}}</strong><br><br><br>

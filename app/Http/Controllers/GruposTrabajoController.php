@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\GrupoTrabajo;
 use App\SeguimientoProyecto;
 use App\User;
-use DB;
 use Illuminate\Support\Str;
 use App\Http\Requests\GrupoRequest;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\DB as FacadesDB;
 
 class GruposTrabajoController extends Controller

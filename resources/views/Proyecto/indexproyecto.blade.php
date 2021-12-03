@@ -1,16 +1,6 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<<<<<<< HEAD
-<link rel="stylesheet" href="{{ asset ('css/proyecto.css')}}">
-<link rel="stylesheet" href="jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css"> 
-<link rel="stylesheet" href="estilos.css">
-<div style="height: 50px;"></div>
-   
-<!-- <div class="row col-6">
-<canvas id="myChart" width="400" height="400"></canvas>
-</div> -->
-=======
     <link rel="stylesheet" href="{{ asset ('css/proyecto.css')}}">
     <link rel="stylesheet" href="{{asset('jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
@@ -21,7 +11,6 @@
         </ol>
       </nav>
 
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 <a href="{{url('proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
 
@@ -39,7 +28,7 @@
             <div class="card__descripcion">
                 <p>Fecha de entrega: {{ $proyecto->FechaEntrega}}</p>
                 <p>Fecha de Realizacion: {{ $proyecto->FechaRealizacion}}</p>
-              
+
                 <p>Estado: {{ $proyecto->Estado}}</p>
 
             </div>
