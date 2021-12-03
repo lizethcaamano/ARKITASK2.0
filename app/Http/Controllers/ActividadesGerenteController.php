@@ -108,11 +108,7 @@ class ActividadesGerenteController extends Controller
         $actividad -> Estado = $request -> input("estado");
         $actividad ->save();
 
-<<<<<<< HEAD
-    return redirect('actividades')
-=======
     return redirect('gerente/Actividades')
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
           ->with("mensaje_exito", "Actividad  actualizada");
 
     }

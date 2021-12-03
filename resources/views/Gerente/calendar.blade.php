@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-@extends('Templates.administrador1')
-=======
 @extends('Templates.Gerente')
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 @section('administrador_contenido')
 @csrf
 <fieldset>

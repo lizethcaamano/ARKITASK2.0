@@ -1,11 +1,8 @@
 <?php
 
 use App\Http\Controllers\ActividadesController;
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\ActividadEncargadoController;
 use App\Http\Controllers\ActividadesGerenteController;
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 use App\Actividades;
 use App\Entregables;
 use Illuminate\Support\Facades\Route;
@@ -66,11 +63,6 @@ Route::get('reporte', 'AsistenciaController@reporte');
  Route::post('login','Auth\LoginController@login');
  Route::get('logout','Auth\LoginController@logout');
 
-<<<<<<< HEAD
- Route::resource('gerente/Entregables','EntregablesGerenteController')->middleware('miautenticacion');
- Route::resource('gerente/Actividades','ActividadesGerenteController')->middleware('miautenticacion');
- Route::resource('actividades', 'ActividadesController')->middleware('miautenticacion');
-=======
  Route::resource('gerente/Entregables','EntregablesGerenteController');
  Route::resource('gerente/Actividades','ActividadesGerenteController');
  Route::post('gerente/gerente/actividad/crear', [ActividadesGerenteController::class , 'store'])->name('actividad.store');
@@ -80,7 +72,6 @@ Route::get('reporte', 'AsistenciaController@reporte');
  Route::resource('encargado/Entregables','EntregablesEncargadoController');
  Route::resource('encargado/Proyecto','EncargadoProyectoController');
  Route::resource('actividades', 'ActividadesController');
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
  Route::resource('entregables', 'EntregablesController');
  Route::get('entregables/{IdArchivo}/habilitar','EntregablesController@habilitar');
  Route::get('gerente/Entregables/{IdArchivo}/habilitar','EntregablesGerenteController@habilitar');
@@ -92,15 +83,6 @@ Route::get('reporte', 'AsistenciaController@reporte');
      return $actividad;
  });
 
-<<<<<<< HEAD
-  //Auth::Routes();
-  Route::get('prueba-email', function(){
-
-    Mail::to('jsgaravito90@misena.edu.co')
-    ->send(new TestMail() );
-    die ('correo enviado');
-   });
-=======
  //Rutas para el cambio de contraseña cuando el usuario es nuevo
 Route::get('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@mostrarFormCambiarPass');
 Route::post('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@cambiarContrasena');
@@ -124,6 +106,5 @@ Route::get('prueba-email', function () {
 });
   //Auth::Routes();
 
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 

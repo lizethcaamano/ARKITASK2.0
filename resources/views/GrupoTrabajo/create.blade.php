@@ -1,10 +1,6 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<<<<<<< HEAD
-
-<link rel="stylesheet" href="{{ asset ('css/Integrantes.css')}}">
-=======
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{url('Grupo')}}">Todos los Grupos</a></li>
@@ -12,7 +8,6 @@
     </ol>
   </nav>
 
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 <div class="container">
 <h1>Crear Grupos de Proyecto</h1>
 <form method="POST"  action="{{url('Grupo') }}" class="form-horizontal">
@@ -55,95 +50,28 @@
           <option value="div3">3</option>
           <option value="div4">4</option>
           <option value="div5">5</option>
-          
 
-         
-         
+
+
+
       </select>
 </div>
-      
+
 <div id="pai">
 
 <div class="mb-4 mt-6" id="div1">
     <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
     <select value="{{old('IdUsuarioFK')}}" name="Int1" id="selectGrupoTrabajo" class="form-control">
         <option value="">Seleccione</option>
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
         @foreach($usuarios as $usuario )
           <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
           @endforeach
-<<<<<<< HEAD
-     
-=======
-
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
       </select>
 </div>
 
 
 
 
-<<<<<<< HEAD
-
-<div class="mb-4 mt-6" id="div2">
-
-  
-    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
-    <select value="{{old('IdUsuarioFK')}}" name="Int21" id="selectGrupoTrabajo" class="form-control">
-        <option value="">Seleccione</option>
-        @foreach($usuarios as $usuario )
-          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach
-     
-      </select>
-
-<br>
-
-      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
-    <select value="{{old('IdUsuarioFK')}}" name="Int22" id="selectGrupoTrabajo" class="form-control">
-        <option value="">Seleccione</option>
-        @foreach($usuarios as $usuario )
-          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach
-     
-      </select>
-
-</div>
-
-
-<div class="mb-4 mt-6" id="div3">
-    <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
-    <select value="{{old('IdUsuarioFK')}}" name="Int31" id="selectGrupoTrabajo" class="form-control">
-        <option value="">Seleccione</option>
-        @foreach($usuarios as $usuario )
-          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach
-     
-      </select>
-      <br>
-      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
-      <select value="{{old('IdUsuarioFK')}}" name="Int32" id="selectGrupoTrabajo" class="form-control">
-        <option value="">Seleccione</option>
-        @foreach($usuarios as $usuario )
-          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach
-     
-      </select>
-      <br>
-      <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
-      <select value="{{old('IdUsuarioFK')}}" name="Int33" id="selectGrupoTrabajo" class="form-control">
-        <option value="">Seleccione</option>
-        @foreach($usuarios as $usuario )
-          <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach
-     
-      </select>
-</div>
-=======
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 <div class="mb-4 mt-6" id="div4">
     <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
@@ -221,7 +149,7 @@
       </select>
 </div>
 
-     
+
 
 </div>
 <!-- Button -->
