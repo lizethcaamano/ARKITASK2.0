@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ActividadesController;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\ActividadEncargadoController;
+use App\Http\Controllers\ActividadesGerenteController;
+>>>>>>> 02eace5ed143c5b250da821217b25c0cdec27de2
 use App\Actividades;
 use App\Entregables;
 use Illuminate\Support\Facades\Route;
@@ -61,9 +66,24 @@ Route::get('reporte', 'AsistenciaController@reporte');
  Route::post('login','Auth\LoginController@login');
  Route::get('logout','Auth\LoginController@logout');
 
+<<<<<<< HEAD
  Route::resource('gerente/Entregables','EntregablesGerenteController')->middleware('miautenticacion');
  Route::resource('gerente/Actividades','ActividadesGerenteController')->middleware('miautenticacion');
  Route::resource('actividades', 'ActividadesController')->middleware('miautenticacion');
+=======
+ Route::resource('gerente/Entregables','EntregablesGerenteController');
+ Route::resource('gerente/Actividades','ActividadesGerenteController');
+ Route::resource('gerente/Asistencia','AsistenciaGerenteController');
+ Route::resource('gerente/Proyecto','GerenteProyectoController');
+ Route::post('gerente/gerente/actividad/crear', [ActividadesGerenteController::class , 'store'])->name('actividad.store');
+ Route::resource('encargado/Actividades','ActividadEncargadoController');
+ Route::post('encargado/Proyecto/crear', [EncargadoProyectoController::class , 'store'])->name('encargado.store');
+ Route::post('encargado/encargado/actividad/crear', [ActividadEncargadoController::class , 'store'])->name('actividad.store');
+ Route::resource('encargado/Asistencia','AsistenciaEncargadoController');
+ Route::resource('encargado/Entregables','EntregablesEncargadoController');
+ Route::resource('encargado/Proyecto','EncargadoProyectoController');
+ Route::resource('actividades', 'ActividadesController');
+>>>>>>> 02eace5ed143c5b250da821217b25c0cdec27de2
  Route::resource('entregables', 'EntregablesController');
  Route::get('entregables/{IdArchivo}/habilitar','EntregablesController@habilitar');
  Route::get('gerente/Entregables/{IdArchivo}/habilitar','EntregablesGerenteController@habilitar');
@@ -75,6 +95,7 @@ Route::get('reporte', 'AsistenciaController@reporte');
      return $actividad;
  });
 
+<<<<<<< HEAD
   //Auth::Routes();
   Route::get('prueba-email', function(){
 
@@ -82,5 +103,30 @@ Route::get('reporte', 'AsistenciaController@reporte');
     ->send(new TestMail() );
     die ('correo enviado');
    });
+=======
+ //Rutas para el cambio de contraseña cuando el usuario es nuevo
+Route::get('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@mostrarFormCambiarPass');
+Route::post('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@cambiarContrasena');
+
+
+// Rutas de recuperacion de contraseña por solicitud del usuario
+Route::get('recuperar-password', "Auth\ResetPasswordController@emailform");
+Route::post('link-seguridad', "Auth\ResetPasswordController@submitlink");
+Route::get('reset-password/{token}', "Auth\ResetPasswordController@resetform");
+Route::post('reset-password', "Auth\ResetPasswordController@resetpassword");
+
+
+
+Route::get('prueba-email', function () {
+    $detalles = [
+        "Enviado por" => "Lizeth Caamaño"
+    ];
+    Mail::to('ldcaamano@misena.edu.co')
+        ->send(new TestMail($detalles));
+    die('Correo Enviado');
+});
+  //Auth::Routes();
+
+>>>>>>> 02eace5ed143c5b250da821217b25c0cdec27de2
 
 

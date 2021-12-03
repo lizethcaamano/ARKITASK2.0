@@ -3,6 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConfirmarCorreoRequest;
+use App\Http\Requests\ResetPasswordRequest;
+use Illuminate\Http\Request;
+//Paquetes utilitarios para la caracteristica
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+//correo personalizado
+use App\Mail\ResetPasswordMail;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -36,6 +48,7 @@ class ForgotPasswordController extends Controller
     public function submitlink(ConfirmarCorreoRequest $r){
 
         //1. Generar código aleatorio
+
         $token = Str::random(64);
         //var_dump($token);
         //2. Resgitrar en la tabla password_resets. Una entrada con el email, código y fecha

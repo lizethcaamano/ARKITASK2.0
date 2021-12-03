@@ -67,22 +67,11 @@
         @foreach($rol as $rol )
           <option value="{{$rol->IdRol}}">{{$rol->NombreRol}}</option>
           @endforeach
-<<<<<<< HEAD
-     
-      </select>
-</div>
-
-
-=======
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
       </select>
 </div>
 
-<<<<<<< HEAD
-=======
 <input type="hidden" value="{{old('password')}}" name="password" class="form-control" >
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 
 

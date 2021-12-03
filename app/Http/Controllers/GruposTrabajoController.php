@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use App\GrupoTrabajo;
 use App\SeguimientoProyecto;
 use App\User;
-use DB;
 use Illuminate\Support\Str;
 use App\Http\Requests\GrupoRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class GruposTrabajoController extends Controller
 {
@@ -22,7 +23,7 @@ class GruposTrabajoController extends Controller
         $grupos = GrupoTrabajo:: all();
         $grupos-> each(function($grupos){
             $grupos->GrupoTrabajo;
-            
+
         });
         return view('GrupoTrabajo.Index')->with('grupos', $grupos);
     }
@@ -53,16 +54,16 @@ class GruposTrabajoController extends Controller
 
         $Codigo=Str::random(4);
         $grupo = new GrupoTrabajo();
-      
+
         $seguimiento = new SeguimientoProyecto();
 
         $grupo -> CodigoGrupo ="Grup$Codigo";
         $grupo -> FechaInicio = $request -> input('inicio');
-        $grupo -> FechaDesactivacion = $request -> input('desactivacion'); 
+        $grupo -> FechaDesactivacion = $request -> input('desactivacion');
         $grupo -> save();
-       
+
         $seguimiento -> IdGrupoFK = $grupo->IdGrupo;
-        $seguimiento -> IdUsuarioFK = $request -> input ('Int21');        
+        $seguimiento -> IdUsuarioFK = $request -> input ('Int21');
         $seguimiento-> save();
 
         $seguimiento1 = new SeguimientoProyecto();
@@ -134,7 +135,7 @@ class GruposTrabajoController extends Controller
          $seguimiento2 -> IdGrupoFK = $grupo->IdGrupo;
          $seguimiento2 -> IdUsuarioFK = $request -> input ('Int55');
          $seguimiento2-> save();
-      
+
         return redirect ('Grupo');
 
     }
@@ -149,7 +150,7 @@ class GruposTrabajoController extends Controller
     {
         $grupo= GrupoTrabajo::find($id);
 
-        
+
         $Integrantes= DB::table('SeguimientoProyecto')
         ->where ('IdGrupoFK','=',$id)
         ->get ();
@@ -184,17 +185,17 @@ class GruposTrabajoController extends Controller
     {
 
         $grupo = GrupoTrabajo::find($id);
-       
+
         $seguimiento = new SeguimientoProyecto();
 
-     
+
         $grupo -> FechaInicio = $request -> input('inicio');
         $grupo -> FechaDesactivacion = $request -> input('desactivacion');
         $seguimiento->IdUsuarioFK = $request -> input ('grupos');
 
         $grupo -> save();
 
-        
+
         return redirect('Grupo')->with('actualizado', 'El grupo se ha actualizado exitosamente');
     }
 

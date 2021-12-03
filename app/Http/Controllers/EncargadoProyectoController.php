@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
 
+namespace App\Http\Controllers;
 use App\Catalogo;
 use App\GrupoTrabajo;
 use Illuminate\Http\Request;
@@ -21,35 +21,9 @@ class EncargadoProyectoController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-         if(Auth::check()){
-
-
-        $proyectos = Proyecto:: all();
-        $proyectos-> each(function($proyectos){
-            $proyectos->TipoProyecto;
-            $proyectos->grupo;
-            $proyectos->catalogo;
-        }
-        );
-        return view ('EncargadoProyecto.indexProyectoEncargado')->with("proyectos", $proyectos);
-
-     }else{
-         return route('login');
-     }
-=======
         $encargados = EncargadoProyecto::paginate(6);
-<<<<<<< HEAD
-        $encargados->each(function($encargados){
-            $encargados->EncargadoProyecto;
-            $encargados->usuario;
-        });
-        return view ('encargadoProyecto.indexEncargado')
-=======
         return view ('EncargadoProyecto.indexProyectoEncargado')
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
         ->with("encargados",$encargados);
->>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
     }
 
     /**
@@ -59,14 +33,13 @@ class EncargadoProyectoController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
+
         $tipopro=TipoProyecto::all();
         $grupo = GrupoTrabajo::all();
         $catalogo = Catalogo::all();
 
         return view('Proyecto.createProyecto')->with('tipopro',$tipopro)->with( 'grupo',$grupo)->with('catalogo',$catalogo);
-=======
-<<<<<<< HEAD
+
     //     $User=
     //     DB::table('AsignarRol')
     //    ->where ('IdRolFK','=','3')
@@ -83,10 +56,8 @@ class EncargadoProyectoController extends Controller
 
 ;
         return view('encargadoProyecto.createEncargado')->with('proyecto',$proyecto)->with('usuario',$usuario);
-=======
         return view('EncargadoProyecto.createProyectoEncargado');
->>>>>>> 7ae984279a66110dc01e8714b8dee6f3defe91f
->>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
+        return view('EncargadoProyecto.createProyectoEncargado');
     }
 
     /**
@@ -97,30 +68,17 @@ class EncargadoProyectoController extends Controller
      */
     public function store(ProyectoRequest $request)
     {
-<<<<<<< HEAD
-//$array = [1,2,3,4,5,6,7,8,9];
-$Proyecto= Str::random(4);
-
-
-
-=======
-
-
 
         $nuevoencargado = new EncargadoProyecto();
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");
         $nuevoencargado->Observaciones = $request->input("observaciones");
-<<<<<<< HEAD
-        $nuevoencargado->IdProyectoFK= $request->input("idproyectofk");
-        $nuevoencargado->IdUsuarioFK= $request->input("idusuariofk");
-=======
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
->>>>>>> 95d2f6b93b7502700fb66dded6ede5ffb477248f
+
+
 
         //crear el nuevo recurso clienteDB::delete('delete users where name = ?', ['John'])
         $nuevoproyecto = new Proyecto();
-        $nuevoproyecto->CodigoProyecto ="Proy$Proyecto";
+        $nuevoproyecto->CodigoProyecto ="$Proyecto";
         $nuevoproyecto->NombreProyecto = $request->input("nombre");
         $nuevoproyecto->FechaRealizacion = $request->input("fechar");
         $nuevoproyecto->FechaEntrega = $request->input("fechae");
@@ -128,8 +86,6 @@ $Proyecto= Str::random(4);
         $nuevoproyecto->IdGrupoFK = $request->input("grupo");
         $nuevoproyecto->IdCatalogoFK = $request->input("catalogo");
         $nuevoproyecto->Estado ="Proceso";
-
-
         $nuevoproyecto->save();
      //redireccionamiento  a una ruta especifica
 

@@ -1,9 +1,5 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
-<<<<<<< HEAD
-<link rel="stylesheet" href="{{ asset ('css/Integrantes.css')}}">
-=======
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 <div class="container">
 <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -24,9 +20,6 @@
 <legend>Crear grupos de trabajo</legend>
 
 <!-- Text input-->
-<<<<<<< HEAD
-
-=======
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Codigo de grupo</label>
   <div class="col-md-4">
@@ -34,7 +27,6 @@
  <strong class="text-danger">{{$errors->first('codigoe')}}</strong>
   </div>
 </div>
->>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 <!-- Text input-->
 <div class="form-group">
@@ -69,11 +61,11 @@
           <option value="div5">5</option>
           <option value="div6">6</option>
 
-         
-         
+
+
       </select>
 </div>
-      
+
 <div id="pai">
 
 <div class="mb-4 mt-6" id="div1">
@@ -83,10 +75,10 @@
         @foreach($usuarios as $usuario )
           <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
           @endforeach
-     
+
       </select>
 </div>
-      
+
 <div class="mb-4 mt-6" id="div2">
     <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
     <select value="{{old('IdGrupoFK')}}" name="grupos" id="selectGrupoTrabajo" class="form-control">
@@ -221,7 +213,7 @@
         <option value="">Seleccione</option>
         @foreach($usuarios as $usuario )
           <option value="{{$usuario->IdUsuario}}">{{$usuario->Nombre}}</option>
-          @endforeach  
+          @endforeach
       </select>
       <br>
       <label class="form-label" id="labelGrupoTrabajo"><h4>Integrante del grupo</h4></label>
@@ -257,7 +249,7 @@
       </select>
 </div>
 </div>
-     
+
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for=""></label>
