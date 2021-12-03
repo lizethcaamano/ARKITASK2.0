@@ -67,6 +67,7 @@ Route::get('reporte', 'AsistenciaController@reporte');
 
  Route::resource('gerente/Entregables','EntregablesGerenteController');
  Route::resource('gerente/Actividades','ActividadesGerenteController');
+ Route::resource('gerente/Encargado','ActividadesEncargadoController');
  Route::resource('actividades', 'ActividadesController');
  Route::resource('entregables', 'EntregablesController');
  Route::get('entregables/{IdArchivo}/habilitar','EntregablesController@habilitar');
