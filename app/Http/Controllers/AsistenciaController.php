@@ -23,7 +23,7 @@ class AsistenciaController extends Controller
         $this->middleware('miautenticacion');
     }
 
-    
+
     public function index()
     {
         if(Auth::check()){

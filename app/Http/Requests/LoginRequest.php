@@ -25,16 +25,19 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-         
-                
-                "password"=>'required|min:6'    
+
+                "email" => 'required|exists:Usuario,email|email',
+                "password"=>'required|min:6'
         ];
     }
 public function messages()
-{  
+{
 
 return [ 'NumeroDocumento.required' => 'Este campo es obligatorio',
-'password.required' => 'Este campo es obligatorio',
-'NumeroDocumento.numeric' => 'Solo se aceptan numeros'];
+'password.required' => 'La contraseña es obligatoria',
+'email.required' => 'El correo es obligatorio',
+'email.exists' => 'El correo no está registrado',
+'email.email' => 'Ingrese un correo valido'
+];
 }
 }

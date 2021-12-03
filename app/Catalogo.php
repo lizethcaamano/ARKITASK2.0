@@ -18,7 +18,7 @@ class Catalogo extends Model
 
     public function Imagen(){
 
-        return $this -> HasMany('App\Imagen','IdCatalogoFK');
+        return $this -> HasMany('App\Imagenes','IdCatalogoFK');
     }
 
 }

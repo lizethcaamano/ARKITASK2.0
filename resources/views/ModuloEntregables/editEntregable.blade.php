@@ -5,9 +5,6 @@
     @csrf
     <fieldset>
 
-    <!-- Form Name -->
-    <legend>Editar Entregable</legend>
-
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="textname">Fecha de entrega: </label>
@@ -48,6 +45,6 @@
     </div>
 
     </fieldset>
-
     </form>
+    </div>
 @endsection

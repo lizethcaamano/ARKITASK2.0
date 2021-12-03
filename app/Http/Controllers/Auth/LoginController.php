@@ -26,7 +26,10 @@ switch(Auth::user()->Rol()->first()->NombreRol){
              case "Gerente": return redirect("gerente/Entregables");
              break;
              case "Encargado Proyecto": return redirect("asistencia");
-             break;}}else{
+             break;
+            }
+            }
+            else{
         return view('auth.login');
     }
 
@@ -65,7 +68,7 @@ return redirect ('login')->with("credenciales_invalidas","credenciales no valida
 public function logout(){
   Auth::logout();
 return redirect('login')
-->with("mensajeExito","Cierre de sesion  exitosamente");
+->with("mensajeExito","Cierre de sesion  exitoso");
 }
 }
 

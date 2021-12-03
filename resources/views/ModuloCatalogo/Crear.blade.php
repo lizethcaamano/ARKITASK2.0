@@ -8,7 +8,7 @@
 
     <fieldset>
 
-      
+
 
         <!-- Text input-->
         <div class="form-group" >
@@ -31,13 +31,19 @@
         <!-- Text input-->
         <div class="form-group">
           <label class="col-md-4 control-label" for="textinput">Área del Proyecto</label>
-         
+
           <div class="col-md-4">
           <input value="{{old('area')}}" name="area" type="text" placeholder="" class="form-control input-md" maxlength="12">
-          <strong> {{ $errors->first('area') }} </strong>  
+          <strong> {{ $errors->first('area') }} </strong>
         </div>
         </div>
 
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textInput1">Imagen</label>
+            <input value="{{old('empresa')}}" name="imagen" type="file" placeholder="Seleccione la imagen del catálogo" class="form-control input-md" accept="image/*">
+            <strong> {{ $errors->first('empresa') }} </strong>
+            <div class="col-md-4">
+          </div>
 
         <!-- Button -->
         <div class="form-group">

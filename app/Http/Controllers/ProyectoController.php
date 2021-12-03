@@ -23,7 +23,7 @@ class ProyectoController extends Controller
     {
          if(Auth::check()){
 
-        
+
         $proyectos = Proyecto:: all();
         $proyectos-> each(function($proyectos){
             $proyectos->TipoProyecto;

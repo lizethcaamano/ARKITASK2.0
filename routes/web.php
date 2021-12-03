@@ -20,11 +20,12 @@ use App\Http\Controllers\Auth\CambiarContrasenaController;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('homeArki');
 
 });
 Route::resource('asistencia', 'AsistenciaController')->middleware('miautenticacion');
 
+Route::resource('proyecto', 'ProyectoController');
 
 Route::resource('proyecto', 'ProyectoController')->middleware('miautenticacion');
 
@@ -32,12 +33,8 @@ Route::resource('proyecto', 'ProyectoController')->middleware('miautenticacion')
 
 Route::resource('catalogo', 'CatalogoController')->middleware('miautenticacion');
 
- Route::get('cambiarContrasena/{idUsuario}', 'CambiarContrasenaController@mostrarFormCambiarPass');
- Route::post('cambiarContrasena', 'CambiarContrasenaController@cambiarContrasena');
 
-
-
-Route::resource('Usuario','UsuarioController')->middleware('miautenticacion');
+Route::resource('Usuario','UsuarioController');
 
 Route::resource('Encargado','EncargadoProyectoController')->middleware('miautenticacion');
 
@@ -49,18 +46,17 @@ Route::resource('entregables', 'EntregablesController')->middleware('miautentica
 
 Route::resource('proyectoT', 'ProyectosTerminadosController')->middleware('miautenticacion');
 
+
+
 Route::get('plantilla', function () {
     return view('Templates.administrador');
-
 
 
 });
 
 Route::get('reporte', 'AsistenciaController@reporte');
 
-
-
-
+// Rutas para el login y el logout
  Route::get('login','Auth\LoginController@form');
  Route::post('login','Auth\LoginController@login');
  Route::get('logout','Auth\LoginController@logout');
@@ -80,12 +76,28 @@ Route::get('reporte', 'AsistenciaController@reporte');
      return $actividad;
  });
 
-  //Auth::Routes();
-  Route::get('prueba-email', function(){
+ //Rutas para el cambio de contraseña cuando el usuario es nuevo
+Route::get('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@mostrarFormCambiarPass');
+Route::post('asignarcontra/{idUsuario}', 'Auth\CambiarContrasenaController@cambiarContrasena');
 
-    Mail::to('jsgaravito90@misena.edu.co')
-    ->send(new TestMail() );
-    die ('correo enviado');
-   });
+
+// Rutas de recuperacion de contraseña por solicitud del usuario
+Route::get('recuperar-password', "Auth\ResetPasswordController@emailform");
+Route::post('link-seguridad', "Auth\ResetPasswordController@submitlink");
+Route::get('reset-password/{token}', "Auth\ResetPasswordController@resetform");
+Route::post('reset-password', "Auth\ResetPasswordController@resetpassword");
+
+
+
+Route::get('prueba-email', function () {
+    $detalles = [
+        "Enviado por" => "Lizeth Caamaño"
+    ];
+    Mail::to('ldcaamano@misena.edu.co')
+        ->send(new TestMail($detalles));
+    die('Correo Enviado');
+});
+  //Auth::Routes();
+
 
 
