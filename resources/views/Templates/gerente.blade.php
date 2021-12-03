@@ -163,7 +163,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('gerente/Actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-list-1"></i>
                             <span class="nav-text">Actividades</span>
                         </a>
@@ -260,6 +260,14 @@
 
     <!-- Dashboard 1 -->
     <script src="{{asset('./js/dashboard/dashboard-1.js')}}"></script>
+
+     <!--fullcalendar -->
+     <script src="{{asset('vendor/jqueryui/js/jquery-ui.min.js')}}"></script>
+     <script src="{{asset('vendor/moment/moment.min.js')}}"></script>
+     <script src="{{asset('vendor/fullcalendar/js/fullcalendar.min.js')}}"></script>
+     <script src="{{asset('js/plugins-init/fullcalendar-init.js')}}"></script>
+     <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.css')}}"></script>
+     <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.js')}}"></script>
 
     <script>
         function carouselReview() {

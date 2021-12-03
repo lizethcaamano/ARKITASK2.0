@@ -25,7 +25,7 @@ switch(Auth::user()->Rol()->first()->NombreRol){
              break;
              case "Gerente": return redirect("gerente/Entregables");
              break;
-             case "Encargado Proyecto": return redirect("asistencia");
+             case "Encargado Proyecto": return redirect("encargado/Asistencia");
              break;
             }
             }
@@ -52,7 +52,7 @@ var_dump(Auth::user());
                break;
                case "Gerente": return redirect("gerente/Entregables");
                break;
-               case "Encargado Proyecto": return redirect("asistencia");
+               case "Encargado Proyecto": return redirect("encargado/Asistencia");
                break;
  }
 

@@ -10,7 +10,7 @@ use App\Http\Requests\ActividadesRequest;
 
 
 
-class ActividadesEncargadoController extends Controller
+class ActividadEncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -54,7 +54,7 @@ class ActividadesEncargadoController extends Controller
         else{
             echo ("Guardado con exito");
         }
-      return redirect('EncargadoProyecto/Actividades')
+      return redirect('encargado/Actividades')
             ->with("mensaje_exito", "Actividad registrada exitosamente");
 
     }
@@ -108,7 +108,7 @@ class ActividadesEncargadoController extends Controller
         $actividad -> Estado = $request -> input("estado");
         $actividad ->save();
 
-    return redirect('actividades')
+    return redirect('encargado/Actividades')
           ->with("mensaje_exito", "Actividad  actualizada");
 
     }

@@ -1,4 +1,4 @@
-@extends('Templates.administrador1')
+@extends('Templates.Encargado')
 @section('administrador_contenido')
 @csrf
 <fieldset>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="modal-body">
                             @foreach ( $Actividades as $actividad )  @endforeach
-                            <form method="POST" action="/actividad/crear" class="form-horizontal">
+                            <form method="POST" action="encargado/actividad/crear" class="form-horizontal">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

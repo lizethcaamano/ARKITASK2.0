@@ -140,28 +140,27 @@
 
 
                     <li>
-                        <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('encargado/Proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-folder-8"></i>
                             <span class="nav-text">Proyectos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('encargado/Asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <span class="nav-text">Asistencia</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{url('actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('encargado/Actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-list-1"></i>
                             <span class="nav-text">Actividades</span>
                         </a>
                     </li>
 
                     <li>
-                        <a class="has-arrow ai-icon" href="{{url('entregables
-                        ')}}" aria-expanded="false">
+                        <a class="has-arrow ai-icon" href="{{url('encargado/Entregables')}}" aria-expanded="false">
 
                             <i class="flaticon-381-paperclip"></i>
                             <span class="nav-text">Entregables</span>
@@ -236,6 +235,14 @@
 
     <!-- Dashboard 1 -->
     <script src="{{asset('./js/dashboard/dashboard-1.js')}}"></script>
+
+     <!--fullcalendar -->
+     <script src="{{asset('vendor/jqueryui/js/jquery-ui.min.js')}}"></script>
+     <script src="{{asset('vendor/moment/moment.min.js')}}"></script>
+     <script src="{{asset('vendor/fullcalendar/js/fullcalendar.min.js')}}"></script>
+     <script src="{{asset('js/plugins-init/fullcalendar-init.js')}}"></script>
+     <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.css')}}"></script>
+     <script src="{{asset('js/fullcalendar-scheduler-5.10.0/lib/main.js')}}"></script>
 
     <script>
         function carouselReview() {
