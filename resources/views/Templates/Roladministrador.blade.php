@@ -137,47 +137,13 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li>
-                        <a href="{{url('Usuario')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-user-8"></i>
-                            <span class="nav-text">Usuarios</span>
-                        </a>
-                    </li>
 
-                    <li>
-                        <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-folder-8"></i>
-                            <span class="nav-text">Proyectos</span>
-                        </a>
-                    </li>
                     <li>
                         <a href="{{url('asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <span class="nav-text">Asistencia</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{url('Grupo')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-user-9"></i>
-                            <span class="nav-text">Grupos de Trabajo</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{url('actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-list-1"></i>
-                            <span class="nav-text">Actividades</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="has-arrow ai-icon" href="{{url('entregables
-                        ')}}" aria-expanded="false">
-
-                            <i class="flaticon-381-paperclip"></i>
-                            <span class="nav-text">Entregables</span>
-                        </a>
-                    </li>
-
 
                     <li>
                         <a href="{{url('Encargado')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">

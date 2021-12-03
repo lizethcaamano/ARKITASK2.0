@@ -5,11 +5,12 @@
     <link rel="stylesheet" href="{{asset('jqueryUI/jquery-ui-1.12.1/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/estilos.css')}}">
 
-<div style="height: 50px;"></div>
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Generalidades Proyectos</li>
+        </ol>
+      </nav>
 
-<div class="row col-6">
-<canvas id="myChart" width="400" height="400"></canvas>
-</div>
 
 <a href="{{url('proyecto/create')}}" class="btn btn-primary">Nuevo Proyecto</a>
 
@@ -39,6 +40,14 @@
 
         </div>
  @endforeach
+
+
+
+ <div style="height: 50px;"></div>
+
+<div class="row col-6">
+<canvas id="myChart" width="400" height="400"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
 
