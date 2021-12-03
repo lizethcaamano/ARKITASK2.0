@@ -24,7 +24,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate(10);
+        $usuarios = User::all();
         $usuarios-> each(function($usuarios){
             $usuarios->Rol;
 
