@@ -55,7 +55,7 @@
     <select value="{{old('IdTipoProyectoFK')}}" id="inputTipoProyecto" name="tipopro" class="form-control">
   
           @foreach ($tipopro as $tipo)
-          <option value="{{$tipo->IdTipoProyecto}}">{{$tipo->NombreTipoProyecto}}</option>
+          <option value="{{$proyecto->IdTipoProyectoFK}}">{{$tipo->NombreTipoProyecto}}</option>
           @endforeach
       </select>
      <!-- <strong class="text-danger" id="valTipoProyecto">{{$errors->first('tipopro')}}</strong> -->
@@ -90,7 +90,7 @@
   
   <div class="mb-4 mt-6">
     <label for="observaciones" class="form-label" id="labelDesc"><h4>Descripción:</h4></label>
-   <textarea value="{{old('descripcion')}}" name="descripcion" id="txDesc" cols="20" rows="9" class="form-control"></textarea>
+   <textarea value="{{$proyecto->Descripcion}}" name="descripcion" id="txDesc" cols="20" rows="9" class="form-control"></textarea>
     <!-- <span class="text-danger">{{$errors->first("descripcion")}}</span> -->
 </div><br>
 
