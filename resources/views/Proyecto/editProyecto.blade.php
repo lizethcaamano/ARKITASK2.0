@@ -40,13 +40,13 @@
 </div>
 
 
-<div class="form-group">
+<!-- <div class="form-group">
   <label class="col-md-4 control-label" for="Gmail">Fecha de Entrega</label>
   <div class="col-md-4">
   <input value="{{$proyecto->FechaEntrega}}" name="fechae"  type="date" placeholder="" class="form-control input-md">
    <strong>{{$errors->first('fechae')}}</strong>
   </div>
-</div>
+</div> -->
 
 
 <div class="mb-4 mt-6">
