@@ -95,8 +95,10 @@
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     <img src="images/profile/17.jpg" width="20" alt="" />
                                     <div class="header-info">
-                                        <span class="text-black">
+                                        <span class="text-black"><strong> {{Auth::user()->Nombre}} {{Auth::user()->Apellido}} </strong></span>
+                                        <p class="fs-12 mb-0">{{Auth::user()->Rol()->first()->NombreRol}}</p>
                                     </div>
+                                </a>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./app-profile.html" class="dropdown-item ai-icon">

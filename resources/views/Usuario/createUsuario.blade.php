@@ -16,19 +16,7 @@
 <form method="post" action="{{url('Usuario')}}">
     @csrf
 
-    <div class="form-group">
-        <label class="col-md-6 control-label" >Asignar Rol</label>
-        <select name="rol" class="form-control form-control-lg default-select">
-          <option value="">Seleccione</option>
-            @foreach ($rol as $roles)
-            <option value="{{$roles->IdRol}}">{{$roles->NombreRol}}</option>
-            @endforeach
-        </select>
-        <br>
-        <span class="text-danger">{{$errors->first("rol")}}</span>
-        <div class="col-md-4">
-        </div>
-      </div>
+
 
 <div class="mb-4 mt-6">
     <label for="nombre" class="form-label">Nombre de usuario:</label>
@@ -72,9 +60,18 @@
  <span class="text-danger">{{$errors->first("imagen")}}</span>
 </div>
 
+<div class="mb-4 mt-6" id="div1">
+    <label class="form-label" id="labelGrupoTrabajo"><h4>Asignar Rol</h4></label>
+    <select value="{{old('IdUsuarioFK')}}" name="usuariofk" id="selectGrupoTrabajo" class="form-control">
+        <option value="">Seleccione</option>
+        @foreach($rol as $rol )
+          <option value="{{$rol->IdRol}}">{{$rol->NombreRol}}</option>
+          @endforeach
 
+      </select>
+</div>
 
-<input type="password" value="{{old('password')}}" name="password" class="form-control" >
+<input type="hidden" value="{{old('password')}}" name="password" class="form-control" >
 
 
 

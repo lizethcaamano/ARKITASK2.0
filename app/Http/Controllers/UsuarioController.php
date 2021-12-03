@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\AsignarRol;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
-use App\Mail\TestMail;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UsuariosRequest;
 use Illuminate\Support\Facades\Mail;
@@ -40,8 +40,10 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $rol=Rol::all();
-        return view('usuario.createUsuario')->with('rol', $rol);
+        $Rol= Rol::all();
+        return view('usuario.createUsuario')->with('rol',$Rol);
+
+
     }
 
     /**
@@ -52,12 +54,14 @@ class UsuarioController extends Controller
      */
     public function store(UsuariosRequest $request)
     {
+
+
         $maxVal = User::all()->max('IdUsuario');
         $maxVal++;
 
 
         $contra= Str::random(12);
-        $guardarrol = new Rol();
+
         $nuevousuario = new User();
         $nuevousuario->Nombre = $request->input("nombre");
         $nuevousuario->Apellido = $request->input("apellido");
@@ -67,11 +71,15 @@ class UsuarioController extends Controller
         $nuevousuario->FechaNacimiento = $request->input("fechanacimiento");
         $nuevousuario->Telefono = $request->input("telefono");
         $nuevousuario->Imagen = $request->input("imagen");
-        $guardarrol->IdRolFK = $request->input("rol");
-
-
-
         $nuevousuario->save();
+
+
+        $AsignarG= new AsignarRol();
+        $AsignarG->IdRolFK = $request->input("usuariofk");
+        $AsignarG ->IdUsuarioFK = $nuevousuario->IdUsuario;
+        $AsignarG->save();
+
+
 
      //Enviar correo para el cambio de contraseña
      Mail::to($request->input('correo'))->send(new CambiarContrasenaMail ($maxVal));
