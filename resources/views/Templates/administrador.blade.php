@@ -139,17 +139,11 @@
         <div class="deznav">
             <div class="deznav-scroll">
                 <ul class="metismenu" id="menu">
-                    <li>
-                        <a href="{{url('Usuario')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-user-8"></i>
-                            <span class="nav-text">Usuarios</span>
-                        </a>
-                    </li>
 
                     <li>
-                        <a href="{{url('proyecto')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <a href="{{url('proyectoT')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-folder-8"></i>
-                            <span class="nav-text">Proyectos</span>
+                            <span class="nav-text">Proyectos Terminados</span>
                         </a>
                     </li>
                     <li>
@@ -164,43 +158,14 @@
                             <span class="nav-text">Grupos de Trabajo</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{url('actividades')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-list-1"></i>
-                            <span class="nav-text">Actividades</span>
-                        </a>
-                    </li>
 
                     <li>
-                        <a class="has-arrow ai-icon" href="{{url('entregables
-                        ')}}" aria-expanded="false">
+                        <a class="has-arrow ai-icon" href="{{url('entregables')}}" aria-expanded="false">
 
                             <i class="flaticon-381-paperclip"></i>
                             <span class="nav-text">Entregables</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{url('proyectoT')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-archive"></i>
-                            <span class="nav-text">Proyectos Terminados</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('Encargado')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-user-7"></i>
-                            <span class="nav-text">Encargado</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="{{url('catalogo')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-album-3"></i>
-                            <span class="nav-text">Catálogo</span>
-                        </a>
-                    </li>
-
-
                 </ul>
 
 

@@ -95,8 +95,10 @@
                                 <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
                                     <img src="images/profile/17.jpg" width="20" alt="" />
                                     <div class="header-info">
-                                        <span class="text-black">
+                                        <span class="text-black"><strong> {{Auth::user()->Nombre}} {{Auth::user()->Apellido}} </strong></span>
+                                        <p class="fs-12 mb-0">{{Auth::user()->Rol()->first()->NombreRol}}</p>
                                     </div>
+                                </a>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a href="./app-profile.html" class="dropdown-item ai-icon">
@@ -139,27 +141,31 @@
                 <ul class="metismenu" id="menu">
 
                     <li>
+                        <a href="{{url('proyectoT')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-folder-8"></i>
+                            <span class="nav-text">Proyectos Terminados</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{url('asistencia')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                             <i class="flaticon-381-television"></i>
                             <span class="nav-text">Asistencia</span>
                         </a>
                     </li>
-
                     <li>
-                        <a href="{{url('Encargado')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-user-7"></i>
-                            <span class="nav-text">Encargado</span>
+                        <a href="{{url('Grupo')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                            <i class="flaticon-381-user-9"></i>
+                            <span class="nav-text">Grupos de Trabajo</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{url('catalogo')}}" class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                            <i class="flaticon-381-album-3"></i>
-                            <span class="nav-text">Catálogo</span>
+                        <a class="has-arrow ai-icon" href="{{url('entregables')}}" aria-expanded="false">
+
+                            <i class="flaticon-381-paperclip"></i>
+                            <span class="nav-text">Entregables</span>
                         </a>
                     </li>
-
-
                 </ul>
 
 

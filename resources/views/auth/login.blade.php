@@ -51,17 +51,19 @@
                             <div>
                             </div>
 
+                            <div class="flex-wrap-text-center w-full p-t-25 p-b-230">
+								<a href="{{url('recuperar-password')}}" class="txt1">
+									¿ Has olvidado tu contraseña ?
+								</a>
+							</div>
+
 								<button type="submit" class="login100-form-btn">
 									Iniciar
 								</button>
 
 
 
-							<div class="flex-wrap-text-center w-full p-t-25 p-b-230">
-								<a href="#" class="txt1">
-									¿ Has olvidado tu contraseña ?
-								</a>
-							</div>
+
 
 						</div>
 
