@@ -14,7 +14,7 @@ class CambiarContrasenaMail extends Mailable
     public $idUsuario;
     /**
      * Create a new message instance
-     * 
+     *
      * @return void
      */
     public function __construct ($idUsuario)
@@ -23,11 +23,11 @@ class CambiarContrasenaMail extends Mailable
     }
     /**
      * Build the message
-     * 
+     *
      * @return $this
      */
     public function build()
     {
-        return $this->subject('Bienvenido a ARKITASK')->view('emails.CambiarContrasena');
+        return $this->subject('Bienvenido a ARKITASK')->view('emails.CambiarContrasenaNueva');
     }
 }

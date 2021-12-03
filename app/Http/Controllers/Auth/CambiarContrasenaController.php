@@ -13,7 +13,7 @@ class CambiarContrasenaController extends Controller
     public function mostrarFormCambiarPass($idUsuario)
     {
         $usuario = User::find($idUsuario);
-        return view('autenticacion.CambiarContrasena')->with('usuario', $usuario);
+        return view('auth.asignarcontra')->with('usuario', $usuario);
     }
 
     //Metodo para cambiar la contraseña del usuario

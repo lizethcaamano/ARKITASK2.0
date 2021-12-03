@@ -1,20 +1,23 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-</head>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{url('Usuario')}}">Listado Usuarios</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Crear Nuevo Usuario</li>
+    </ol>
+  </nav>
+
+
 <body>
 <center><h1 class="text-danger">Nuevo Usuario</h1></center>
 
 <div>
 <form method="post" action="{{url('Usuario')}}">
     @csrf
+
+
+
 <div class="mb-4 mt-6">
     <label for="nombre" class="form-label">Nombre de usuario:</label>
     <input type="text" value="{{old('nombre')}}" name="nombre" class="form-control " maxlength="25">
@@ -36,25 +39,25 @@
 <div class="mb-4 mt-6">
     <label for="documento" class="form-label">Número de documento:</label>
     <input type="text" value="{{old('numerodocumento')}}" name="numerodocumento" class="form-control" maxlength="10">
-     <span class="text-danger">{{$errors->first("numerodocumento")}}</span> 
+     <span class="text-danger">{{$errors->first("numerodocumento")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="fecha" class="form-label">Fecha de nacimiento:</label>
     <input type="date" value="{{old('fechanacimiento')}}" name="fechanacimiento" class="form-control" >
-    <span class="text-danger">{{$errors->first("fechanacimiento")}}</span> 
+    <span class="text-danger">{{$errors->first("fechanacimiento")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="telefono" class="form-label">Teléfono:</label>
     <input type="text" value="{{old('telefono')}}" name="telefono" class="form-control" maxlength="10">
-     <span class="text-danger">{{$errors->first("telefono")}}</span> 
+     <span class="text-danger">{{$errors->first("telefono")}}</span>
 </div>
 
 <div class="mb-4 mt-6">
     <label for="imagen" class="form-label">Imagen:</label>
     <input type="file" value="{{old('imagen')}}" name="imagen" class="form-control">
- <span class="text-danger">{{$errors->first("imagen")}}</span> 
+ <span class="text-danger">{{$errors->first("imagen")}}</span>
 </div>
 
 <div class="mb-4 mt-6" id="div1">
@@ -64,13 +67,22 @@
         @foreach($rol as $rol )
           <option value="{{$rol->IdRol}}">{{$rol->NombreRol}}</option>
           @endforeach
+<<<<<<< HEAD
      
       </select>
 </div>
 
 
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
+      </select>
+</div>
 
+<<<<<<< HEAD
+=======
+<input type="hidden" value="{{old('password')}}" name="password" class="form-control" >
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
 
 
@@ -81,6 +93,5 @@
 
 </form>
 </div class="container">
-</body>
-</html>
+
 @endsection

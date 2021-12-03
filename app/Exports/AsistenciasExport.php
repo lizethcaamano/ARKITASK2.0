@@ -5,6 +5,7 @@ namespace App\Exports;
 use App\Asistencia;
 use App\Usuario;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Cell;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromCollection;
@@ -14,6 +15,8 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use PhpParser\Node\Expr\AssignOp\Concat;
+
 
 class AsistenciasExport implements FromCollection, WithHeadings, WithStyles, WithColumnWidths
 {
@@ -63,7 +66,12 @@ class AsistenciasExport implements FromCollection, WithHeadings, WithStyles, Wit
 
     public function collection()
     {
-       return Asistencia::select("IdUsuarioFK","FechaIngreso","HoraIngreso","FechaSalida","HoraSalida")->get();
+
+       return  DB::table('asistencia')->join('Usuario', 'Asistencia.IdUsuarioFK', '=', 'Usuario.IdUsuario')->
+       select( 'Usuario.Nombre', 'Asistencia.FechaIngreso', 'Asistencia.HoraIngreso', 'Asistencia.FechaSalida', 'Asistencia.HoraSalida' )->
+       get();
+
+       /*Asistencia::select("IdUsuarioFK","FechaIngreso","HoraIngreso","FechaSalida","HoraSalida")->get();*/
     }
 
 }

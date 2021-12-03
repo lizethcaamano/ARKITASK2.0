@@ -15,7 +15,11 @@ class CatalogoController extends Controller
      */
     public function index()
     {
-        $catalogos = Catalogo::paginate(10);
+        $catalogos = Catalogo::all();
+        $catalogos -> each(function($catalogos){
+            $catalogos->Imagen;
+        });
+       //return dd($catalogos);
         return view('ModuloCatalogo.Listado')->with('catalogos', $catalogos);
     }
 
@@ -54,15 +58,15 @@ class CatalogoController extends Controller
         $validador =Validator::make($request->all(),$reglas,$mensajes);
 
 
-     
+
         if ($validador->fails()){
-              
+
             return redirect ('catalogo/create')->withErrors($validador)
 
 
-            
-           
-              
+
+
+
             ->withInput();
         }
 

@@ -25,8 +25,11 @@ class ProyectoController extends Controller
          if(Auth::check()){
 
 
+<<<<<<< HEAD
           
 
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
         $proyectos = Proyecto:: all();
    
         $proyectos-> each(function($proyectos){

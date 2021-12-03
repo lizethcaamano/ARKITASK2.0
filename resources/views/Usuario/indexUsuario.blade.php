@@ -1,62 +1,68 @@
+
+
 @extends('Templates.administrador')
 @section('administrador_contenido')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Usuarios</title>
-</head>
-<body>
-   
-<center><h1 class="text-lefth">Lista de Usuarios</h1></center>
-  
-<table class="table table-dark">
-    <thead>
-        <tr class="table table-primary">
-           
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Correo</th>
-            <th>Documento</th>
-            <th>Fecha de Nacimiento</th>
-            <th>Teléfono</th>
-            <th>Imagen</th>
-            <th >Detalles</th>
-            <th>Actualizar</th>
-            <th>Modificar estado</th>
-        </tr>
-    </thead>
-    <tbody >
-        @foreach($usuarios as $usuario )
 
-        <tr>
-          
-            <td>{{ $usuario->Nombre}}</td>
-            <td>{{ $usuario->Apellido}}</td>
-            <td>{{ $usuario->Correo}}</td>
-            <td>{{ $usuario->NumeroDocumento}}</td>
-            <td>{{ $usuario->FechaNacimiento}}</td>
-            <td>{{ $usuario->Telefono}}</td>
-            <td>{{ $usuario->Imagen}}</td>
-            <td><a class="btn btn-outline-secondary" href="{{ url('Usuario/'.$usuario->IdUsuario)}}">Ver Detalles </a></td>
-           <td> <a class="btn btn-outline-info" href="{{ url('Usuario/'.$usuario->IdUsuario.'/edit')}}"> Actualizar </a></td>
 
-           
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Listado Usuarios</li>
+    </ol>
+  </nav>
 
-        </tr>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Listado de usuarios</h4>
+            </div>
 
-        @endforeach
-    </tbody>
-</table>
+            <div class="card-body">
+                <div><a  href="{{url('Usuario/create')}}"><i class="fa fa-user h1"><i class=" fa fa-plus-circle text-success h3" ></i></i></a></div><br>
+                <div class="table-responsive">
+                    <table id="example" class="display min-w850">
+                        <tr class="table table-primary">
 
- {{ $usuarios->links() }}
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                            <th>Documento</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th></th>
 
-<a  Class = "btn btn-info " href="{{ url('Usuario/create') }}">Nuevo Usuario</a>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($usuarios as $usuario )
 
-</body>
-</html>
+                                        <tr>
+
+                                            <td>{{ $usuario->Nombre}}</td>
+                                            <td>{{ $usuario->Apellido}}</td>
+                                            <td>{{ $usuario->email}}</td>
+                                            <td>{{ $usuario->NumeroDocumento}}</td>
+                                            <td>{{ $usuario->Telefono}}</td>
+                                            <td></td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="{{ url('Usuario/'.$usuario->IdUsuario.'/edit')}}" class="btn btn-primary shadow btn-xs sharp mr-1"><i class="fa fa-pencil"></i></a>
+                                                    <a href="{{ url('Usuario/'.$usuario->IdUsuario)}}" class="btn btn-info shadow btn-xs sharp"><i class="fa fa-search-plus"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                {{$usuarios->links()  }}
+            </div>
+        </div>
+    </div>
+
+
+
+
 @endsection

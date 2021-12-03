@@ -1,5 +1,17 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<<<<<<< HEAD
+=======
+
+<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{{url('entregables')}}">Lista de Entregables</a></li>
+      <li class="breadcrumb-item"><a href="{{url('entregables/'. $entregable->IdArchivo)}}">Detalle Entregable</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Calificar Entregable</li>
+    </ol>
+  </nav>
+
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 <form method="POST" action="{{ url('entregables/' . $entregable->IdArchivo) }}" class="form-horizontal">
     @method('PUT')
     @csrf
@@ -15,7 +27,11 @@
 
       <div class="col-md-4">
       <input   id="urlarchivo" name="urlarchivo" type="hidden" placeholder="" class="form-control input-md" value="{{$entregable->URLarchivo}}">
+<<<<<<< HEAD
      
+=======
+
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
       <label class="col-md-6 control-label" for="textname">Comentarios</label>
         <div class="col-md-6">
             <textarea   id="comentario" name="comentario" type="text" placeholder="" class="form-control input-md" ></textarea>
@@ -42,5 +58,10 @@
 
     </fieldset>
     </form>
+<<<<<<< HEAD
  
 @endsection
+=======
+
+@endsection
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f

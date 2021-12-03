@@ -33,5 +33,5 @@
         </tr>
         @endforeach
     </tbody>
-   <button href="{{url('catalogo/create')}}">Nuevo Catálogo</button>
+   <a href="{{url('catalogo/create')}}">Nuevo Catálogo</a>
 @endsection

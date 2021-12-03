@@ -19,11 +19,15 @@ class EncargadoProyectoController extends Controller
     public function index()
     {
         $encargados = EncargadoProyecto::paginate(6);
+<<<<<<< HEAD
         $encargados->each(function($encargados){
             $encargados->EncargadoProyecto;
             $encargados->usuario;
         });
         return view ('encargadoProyecto.indexEncargado')
+=======
+        return view ('EncargadoProyecto.indexProyectoEncargado')
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
         ->with("encargados",$encargados);
     }
 
@@ -34,6 +38,7 @@ class EncargadoProyectoController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
     //     $User=  
     //     DB::table('AsignarRol')
     //    ->where ('IdRolFK','=','3')
@@ -50,6 +55,9 @@ class EncargadoProyectoController extends Controller
       
 ;
         return view('encargadoProyecto.createEncargado')->with('proyecto',$proyecto)->with('usuario',$usuario);
+=======
+        return view('EncargadoProyecto.createProyectoEncargado');
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
     }
 
     /**
@@ -67,12 +75,15 @@ class EncargadoProyectoController extends Controller
         $nuevoencargado->FechaInicio = $request->input("fechaInicio");
         $nuevoencargado->FechaFinal = $request->input("fechaFinal");
         $nuevoencargado->Observaciones = $request->input("observaciones");
+<<<<<<< HEAD
         $nuevoencargado->IdProyectoFK= $request->input("idproyectofk");
         $nuevoencargado->IdUsuarioFK= $request->input("idusuariofk");
+=======
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
 
         $nuevoencargado->save();
-     //redireccionamiento  a una ruta especifica 
-     return redirect ('Encargado')->with('Creado','Se ha creado el encargado de proyectos  exitosamente');
+     //redireccionamiento  a una ruta especifica
+     return redirect ('encargado/Proyecto')->with('Creado','Se ha creado el encargado de proyectos  exitosamente');
     }
 
     /**
@@ -84,7 +95,7 @@ class EncargadoProyectoController extends Controller
     public function show($id)
     {
         $encargado =EncargadoProyecto::find($id);
-        return view('encargadoProyecto.showEncargado')
+        return view('EncargadoProyecto.showProyectoEncargado')
         ->with("encargado",$encargado);
     }
 
@@ -96,8 +107,8 @@ class EncargadoProyectoController extends Controller
      */
     public function edit($id)
     {
-        $encargado = EncargadoProyecto::find($id);    
-        return view('encargadoProyecto.editEncargado')->with('encargado',$encargado);
+        $encargado = EncargadoProyecto::find($id);
+        return view('EncargadoProyecto.editProyectoEncargado')->with('encargado',$encargado);
     }
 
     /**
@@ -110,15 +121,15 @@ class EncargadoProyectoController extends Controller
     public function update(encargadoProyectoRequest $request, $id)
     {
         $encargado= EncargadoProyecto::find($id);
-        //actualizar el estado del recurso 
-        //en virtud de los datos que vengan de los formularios 
-  
+        //actualizar el estado del recurso
+        //en virtud de los datos que vengan de los formularios
+
         $encargado->FechaInicio = $request->input("fechaInicio");
         $encargado->FechaFinal = $request->input("fechaFinal");
         $encargado->Observaciones = $request->input("observaciones");
-        
+
         $encargado->save();
-        return redirect("Encargado")
+        return redirect("encargado/Proyecto")
         ->with("mensaje", "El encargado  ha sido actualizado");
     }
 

@@ -15,24 +15,24 @@ class User extends Authenticatable
     protected $primaryKey ="IdUsuario";
     public $timestamps = false;
 
-       // relacion de uno a muchos 
+       // relacion de uno a muchos
 public function asistencia(){
 
-    return $this-> HasMany('App\Asistencia', 'IdUsuarioFK');  
-} 
+    return $this-> HasMany('App\Asistencia', 'IdUsuarioFK');
+}
 
 
-public function proyecto(){ 
+public function proyecto(){
 return $this -> HasMany('App\Proyecto','IdUsuarioFK');
 }
 
  public function  GrupoTrabajo(){
-     return $this ->belongsToMany('App\GrupoTrabajo','SeguimientoProyecto','IdUsuarioFK','IdGrupoFK','IdUsuario','IdGrupo','IdSeguimiento'); 
+     return $this ->belongsToMany('App\GrupoTrabajo','SeguimientoProyecto','IdUsuarioFK','IdGrupoFK','IdUsuario','IdGrupo','IdSeguimiento');
 
   }
 
   public function  Rol(){
-    return $this ->belongsToMany('App\Rol','asignarrol','IdUsuarioFK','IdRolFK'); 
+    return $this ->belongsToMany('App\Rol','asignarrol','IdUsuarioFK','IdRolFK');
 
  }
 

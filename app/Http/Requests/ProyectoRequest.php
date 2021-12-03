@@ -25,8 +25,8 @@ class ProyectoRequest extends FormRequest
     public function rules()
     {
         return [
-         
-               
+
+
                 "nombre"=> 'required|regex:/^[a-zA-Z\s]+$/u|max:30',
                 "fechae"=> 'required|after_or_equal:fechar',
                 "fechar"=> 'required',
@@ -34,15 +34,15 @@ class ProyectoRequest extends FormRequest
                 // "grupo" => 'required',
                 // "catalogo" => 'required'
 
-    
-            
-    
+
+
+
         ];
     }
 public function messages()
-{  
+{
 
-return [ 
+return [
 'nombre.required' => 'El nombre del proyecto es obligatorio',
 'fechae.required' => 'La fecha de entrega es obligatoria',
 'fechae.after_or_equal' =>'La fecha de entrega no puede ser anterior a la fecha de realización',

@@ -1,6 +1,18 @@
 @extends('Templates.administrador')
 @section('administrador_contenido')
+<<<<<<< HEAD
 <form method="POST" action="{{ url('actividades/' . $actividad->IdActividad) }}" class="form-horizontal">
+=======
+<<<<<<< HEAD
+
+
+<form method="POST"
+action="{{ url('actividades/' . $actividad->IdActividad) }}"
+ class="form-horizontal">
+=======
+<form method="POST" action="{{ url('actividades/' . $actividad->IdActividad) }}" class="form-horizontal">
+>>>>>>> 87840d3af5e7ed022ebf21845bb5fea63d6ff7d2
+>>>>>>> 7ae984279a660110dc01e8714b8dee6f3defe91f
     @method('PUT')
     @csrf
     <fieldset>
