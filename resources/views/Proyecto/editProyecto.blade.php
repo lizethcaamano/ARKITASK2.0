@@ -52,7 +52,7 @@
 <div class="mb-4 mt-6">
     <label class="form-label" id="tipoProyecto" for="textinput"><h4>Tipo de Proyecto</h4></label>
   
-    <select value="{{old('IdTipoProyectoFK')}}" id="inputTipoProyecto" name="tipopro" class="form-control">
+    <select value="{{$proyecto->IdTipoProyectoFK}}" id="inputTipoProyecto" name="tipopro" class="form-control">
   
           @foreach ($tipopro as $tipo)
           <option value="{{$proyecto->IdTipoProyectoFK}}">{{$tipo->NombreTipoProyecto}}</option>
